@@ -1,0 +1,3633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Lives on Carlos's own domain now (g2.aalxolutions.com), so it SHOULD be
+     indexed. The noindex pair that used to sit here existed only to protect
+     IBS apex SEO while the page was hosted under
+     innovativeblockchainsolutions.live/xolutions/. -->
+<title>AAL Xolutions | Become Impossible to Ignore</title>
+<link rel="canonical" href="https://g2.aalxolutions.com/">
+<link rel="icon" type="image/png" href="assets/aal-logo.png">
+<meta name="description" content="AAL Xolutions is the visibility and lead-generation infrastructure that helps businesses become impossible to ignore. Get found, build trust, capture every lead, and grow. Foundation first, Growth next.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Typed so the saber's conic-gradient can compute var(--p) * deg reliably */
+  @property --p {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+
+  :root {
+    --bg: #000000;
+    --bg-elevated: #050508;
+    --surface: #0a0a0f;
+    --surface-2: #121218;
+    --surface-3: #1a1a24;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.14);
+    --text: #f8f9fc;
+    --muted: #8a8f9e;
+    --dim: #5a5f72;
+    --purple: #b44dff;
+    --purple-hot: #d478ff;
+    --purple-deep: #7c2bd9;
+    --violet: #8b5cf6;
+    --glow: rgba(180, 77, 255, 0.45);
+    --glow-soft: rgba(180, 77, 255, 0.12);
+    --saber: #c24bf0;
+    --saber-hot: #f6b6fc;
+    --saber-deep: #ad25e9;
+    --green: #34d399;
+    --ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --nav-h: 76px;
+    --max: 1180px;
+    --max-wide: 1320px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  ::selection { background: rgba(180, 77, 255, 0.35); color: #fff; }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: rgba(180, 77, 255, 0.35); border-radius: 3px; }
+
+  .wrap { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+  .wrap-wide { width: min(var(--max-wide), calc(100% - 40px)); margin: 0 auto; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--purple-hot);
+  }
+
+  .display {
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+  }
+
+  .mono {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  /* ─── NAV ─── */
+  .nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    height: var(--nav-h);
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid transparent;
+    transition: background 0.35s ease, border-color 0.35s ease, backdrop-filter 0.35s ease;
+  }
+  .nav.on {
+    background: rgba(0, 0, 0, 0.82);
+    backdrop-filter: blur(20px) saturate(1.2);
+    border-bottom-color: var(--border);
+  }
+  .nav-inner {
+    width: min(var(--max-wide), calc(100% - 40px));
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .brand-logo {
+    height: 42px;
+    width: auto;
+    filter: drop-shadow(0 0 12px rgba(180, 77, 255, 0.35));
+    transition: height 0.3s var(--ease);
+  }
+  .nav.on .brand-logo { height: 36px; }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+  }
+  .nav-links a {
+    font-size: 0.84rem;
+    font-weight: 500;
+    color: rgba(255,255,255,0.55);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: #fff; }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 20px;
+    border-radius: 980px;
+    background: linear-gradient(135deg, var(--purple) 0%, var(--purple-deep) 100%);
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    box-shadow: 0 4px 24px rgba(180, 77, 255, 0.35);
+    transition: transform 0.25s var(--ease), box-shadow 0.25s ease;
+  }
+  .nav-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(180, 77, 255, 0.5);
+  }
+  .nav-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: #fff;
+    transition: transform 0.25s, opacity 0.25s;
+  }
+
+  /* ─── BUTTONS ─── */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 28px;
+    border-radius: 980px;
+    font-size: 0.86rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    transition: transform 0.25s var(--ease), background 0.25s, box-shadow 0.25s, border-color 0.25s;
+  }
+  .btn-primary {
+    /* Carlos 7/30: tone down button gradients */
+    background: linear-gradient(135deg, rgba(168, 85, 230, 0.95) 0%, rgba(109, 40, 180, 0.98) 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(109, 40, 180, 0.22), inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 22px rgba(109, 40, 180, 0.3), inset 0 1px 0 rgba(255,255,255,0.12);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: #fff;
+    border: 1px solid var(--border-strong);
+  }
+  .btn-ghost:hover {
+    border-color: rgba(180, 77, 255, 0.5);
+    background: var(--glow-soft);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--nav-h) + 48px) 0 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background: #000;
+  }
+  .hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 0;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0.45) 0%, rgba(0,0,0,0.35) 40%, rgba(0,0,0,0.55) 100%),
+      radial-gradient(ellipse 80% 50% at 50% -10%, rgba(124, 43, 217, 0.22), transparent 55%),
+      radial-gradient(ellipse 50% 40% at 50% 100%, rgba(0,0,0,0.55), transparent 60%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    background-image:
+      linear-gradient(rgba(180, 77, 255, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180, 77, 255, 0.035) 1px, transparent 1px);
+    background-size: 72px 72px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+  }
+  .hero-orb {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(180, 77, 255, 0.14), transparent 65%);
+    filter: blur(40px);
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    animation: orbPulse 8s ease-in-out infinite;
+  }
+  @keyframes orbPulse {
+    0%, 100% { opacity: 0.55; transform: translateX(-50%) scale(1); }
+    50% { opacity: 0.9; transform: translateX(-50%) scale(1.08); }
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 3;
+    text-align: center;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 980px;
+    border: 1px solid rgba(180, 77, 255, 0.35);
+    background: rgba(180, 77, 255, 0.08);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--purple-hot);
+    margin-bottom: 28px;
+    animation: fadeUp 0.9s 0.15s var(--ease) both;
+  }
+  .hero-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--purple-hot);
+    box-shadow: 0 0 10px var(--purple);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+  }
+  .hero h1 {
+    font-size: clamp(2.6rem, 6.5vw, 4.6rem);
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    max-width: 900px;
+    margin: 0 auto 20px;
+    animation: fadeUp 0.9s 0.25s var(--ease) both;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(135deg, #fff 0%, var(--purple-hot) 50%, var(--purple) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-sub {
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    color: var(--muted);
+    font-weight: 400;
+    max-width: 560px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+    animation: fadeUp 0.9s 0.35s var(--ease) both;
+  }
+  .hero-sub strong { color: #fff; font-weight: 600; }
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-bottom: 56px;
+    animation: fadeUp 0.9s 0.45s var(--ease) both;
+  }
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    max-width: 640px;
+    margin: 0 auto;
+    background: var(--border);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    animation: fadeUp 0.9s 0.55s var(--ease) both;
+  }
+  .hero-stat {
+    background: rgba(10, 10, 15, 0.9);
+    padding: 22px 16px;
+    text-align: center;
+  }
+  .hero-stat-val {
+    font-size: 1.65rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    background: linear-gradient(180deg, #fff, var(--purple-hot));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .hero-stat-lbl {
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: 6px;
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: none; }
+  }
+  @media (max-width: 720px) {
+    .hero-stats { grid-template-columns: 1fr; }
+    .hero-actions { margin-bottom: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video { display: none; }
+    .hero-badge, .hero h1, .hero-sub, .hero-actions, .hero-stats {
+      animation: none !important;
+    }
+  }
+
+  /* ─── SECTIONS ─── */
+  section { position: relative; }
+  .section {
+    padding: 120px 0;
+  }
+  .section-head {
+    text-align: center;
+    max-width: 720px;
+    margin: 0 auto 64px;
+  }
+  .section-head h2 {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    margin: 14px 0 18px;
+  }
+  .section-head h2 .accent { color: var(--purple-hot); }
+  .section-head p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    line-height: 1.65;
+  }
+
+  /* ─── SYSTEM / FUNNEL ─── */
+  .system {
+    padding: 80px 0 120px;
+  }
+  .system-frame {
+    position: relative;
+    border-radius: 28px;
+    border: 1px solid rgba(180, 77, 255, 0.25);
+    background: #050508;
+    box-shadow:
+      0 0 0 1px rgba(0,0,0,0.6),
+      0 40px 120px -20px rgba(0, 0, 0, 0.9),
+      0 0 80px -10px rgba(180, 77, 255, 0.35);
+  }
+  .system-frame::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(160deg, rgba(212, 120, 255, 0.6), transparent 40%, transparent 60%, rgba(124, 43, 217, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+    z-index: 2;
+  }
+  .system-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  /* Scroll-scrubbed 3D reveal (apex-style): panel lays down, stands up on scroll */
+  .system-tilt-wrap,
+  .faq-tilt-wrap {
+    perspective: 1100px;
+    perspective-origin: 50% 38%;
+  }
+  .system-tilt-wrap .system-frame,
+  .faq-tilt-wrap .faq-frame {
+    transform-origin: 50% 100%;
+    transform: rotateX(62deg) scale(0.9);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+  .system-media {
+    position: relative;
+    border-radius: inherit;
+    overflow: hidden;
+  }
+  .system-video {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1168 / 768;
+    background: #050508;
+    object-fit: cover;
+  }
+  /* Saber: neon outline that ignites + traces the edge as the card settles.
+     Colors sampled from the funnel-beam lights in the video. */
+  .system-saber,
+  .faq-saber {
+    position: absolute;
+    inset: -1px;
+    z-index: 3;
+    border-radius: 30px;
+    padding: 2px;                 /* neon core thickness */
+    pointer-events: none;
+    background: conic-gradient(from -90deg,
+      var(--saber) 0deg,
+      var(--saber-hot) calc(var(--p, 0) * 360deg),
+      rgba(0,0,0,0) calc(var(--p, 0) * 360deg),
+      rgba(0,0,0,0) 360deg);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+            mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+            mask-composite: exclude;
+    filter:
+      drop-shadow(0 0 4px var(--saber))
+      drop-shadow(0 0 12px var(--saber-deep))
+      drop-shadow(0 0 22px var(--saber-deep));
+  }
+  .system-saber.lit,
+  .faq-saber.lit {
+    animation: saberIgnite 0.7s var(--ease) 1;
+  }
+  @keyframes saberIgnite {
+    0%   { filter: drop-shadow(0 0 4px var(--saber)) drop-shadow(0 0 12px var(--saber-deep)); }
+    35%  { filter: drop-shadow(0 0 10px #fff) drop-shadow(0 0 30px var(--saber-hot)) drop-shadow(0 0 54px var(--saber-deep)); }
+    100% { filter: drop-shadow(0 0 6px var(--saber)) drop-shadow(0 0 18px var(--saber-deep)) drop-shadow(0 0 30px var(--saber-deep)); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .system-tilt-wrap .system-frame,
+    .faq-tilt-wrap .faq-frame { transform: none; }
+    .system-saber.lit,
+    .faq-saber.lit { animation: none; }
+  }
+  .system-glow {
+    position: absolute;
+    left: 50%;
+    top: 48%;
+    width: 40%;
+    height: 30%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(ellipse, rgba(180, 77, 255, 0.35), transparent 70%);
+    filter: blur(30px);
+    pointer-events: none;
+    animation: funnelPulse 3.5s ease-in-out infinite;
+    z-index: 1;
+  }
+  @keyframes funnelPulse {
+    0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.85; transform: translate(-50%, -50%) scale(1.12); }
+  }
+  .system-caption {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 28px;
+    margin-top: 28px;
+  }
+  .system-caption span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .system-caption i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--purple);
+    box-shadow: 0 0 8px var(--purple);
+  }
+
+  /* ─── CHANNELS STRIP ─── */
+  .channels {
+    padding: 0 0 40px;
+  }
+  .channel-row {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 12px;
+  }
+  .channel-card {
+    position: relative;
+    text-align: center;
+    padding: 22px 10px 18px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: linear-gradient(165deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+    transition: transform 0.35s var(--ease), border-color 0.3s, box-shadow 0.3s;
+  }
+  .channel-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(180, 77, 255, 0.4);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 30px rgba(180, 77, 255, 0.12);
+  }
+  .channel-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 12px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(180, 77, 255, 0.25);
+  }
+  .channel-card h3 {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .channel-card p {
+    font-size: 0.65rem;
+    color: var(--dim);
+    line-height: 1.35;
+  }
+  .ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+  .fb { background: #1877f2; }
+  .tt { background: #000; border: 1px solid #25f4ee; color: #fff; box-shadow: 0 0 16px rgba(37, 244, 238, 0.25); }
+  .yt { background: #ff0000; }
+  .gb { background: #4285f4; }
+  .gs { background: #fff; color: #4285f4; }
+  .web { background: linear-gradient(135deg, #7c3aed, #a855f7); }
+  .qr { background: linear-gradient(135deg, #4c1d95, #7c3aed); }
+
+  /* ─── VALUE / FEATURES ─── */
+  .features {
+    background:
+      radial-gradient(ellipse 50% 40% at 0% 50%, rgba(124, 43, 217, 0.12), transparent),
+      radial-gradient(ellipse 40% 40% at 100% 80%, rgba(180, 77, 255, 0.08), transparent);
+  }
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+  }
+  .feature-card {
+    position: relative;
+    padding: 32px 28px;
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    background: linear-gradient(160deg, rgba(18, 18, 28, 0.9), rgba(8, 8, 12, 0.95));
+    box-shadow: 0 20px 50px -20px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.04);
+    overflow: hidden;
+    transition: transform 0.35s var(--ease), border-color 0.3s, box-shadow 0.3s;
+  }
+  .feature-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(180, 77, 255, 0.35);
+    box-shadow: 0 28px 60px -16px rgba(0,0,0,0.85), 0 0 40px rgba(180, 77, 255, 0.1);
+  }
+  .feature-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(180, 77, 255, 0.5), transparent);
+    opacity: 0.5;
+  }
+  .feature-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--purple);
+    margin-bottom: 18px;
+  }
+  .feature-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+  }
+  .feature-card p {
+    color: var(--muted);
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  /* ─── HOW IT WORKS ─── */
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    position: relative;
+  }
+  .step {
+    padding: 28px 22px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    position: relative;
+  }
+  .step-n {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var(--purple), var(--purple-deep));
+    box-shadow: 0 0 20px rgba(180, 77, 255, 0.35);
+    margin-bottom: 18px;
+  }
+  .step h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .step p {
+    font-size: 0.86rem;
+    color: var(--muted);
+    line-height: 1.55;
+  }
+
+  /* ─── FAQ CUBE ─── */
+  .faq {
+    padding: 120px 0 140px;
+    overflow: hidden;
+  }
+  /* FAQ panel reuses the system section's scroll-tilt + saber reveal. */
+  .faq-frame {
+    position: relative;
+    border-radius: 30px;
+    padding: clamp(28px, 4vw, 52px);
+    border: 1px solid rgba(180, 77, 255, 0.14);
+    background:
+      radial-gradient(ellipse 80% 70% at 50% 0%, rgba(124, 43, 217, 0.14), transparent 70%),
+      linear-gradient(180deg, rgba(12, 8, 20, 0.92) 0%, rgba(5, 5, 8, 0.92) 100%);
+    box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.9);
+  }
+  /* Inner stage loses its own heavy frame so the panel does not read doubled. */
+  .faq-frame .cube-stage {
+    border-color: rgba(180, 77, 255, 0.12);
+    box-shadow: inset 0 0 80px rgba(180, 77, 255, 0.06);
+  }
+  .faq-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+  }
+  .faq-copy h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    margin: 14px 0 18px;
+  }
+  .faq-copy p {
+    color: var(--muted);
+    font-size: 1.02rem;
+    line-height: 1.65;
+    margin-bottom: 28px;
+  }
+  .faq-hints {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+  }
+  .faq-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 980px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--muted);
+  }
+  .faq-hint kbd {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.68rem;
+    padding: 2px 7px;
+    border-radius: 6px;
+    background: rgba(180, 77, 255, 0.15);
+    border: 1px solid rgba(180, 77, 255, 0.3);
+    color: var(--purple-hot);
+  }
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  /* Accordion (the cube moved out to the G2 section) */
+  .faq-item {
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(255,255,255,0.02);
+    overflow: hidden;
+    transition: border-color 0.25s, background 0.25s;
+  }
+  .faq-item.open {
+    border-color: rgba(180, 77, 255, 0.45);
+    background: rgba(180, 77, 255, 0.07);
+  }
+  .faq-q {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: 100%;
+    padding: 16px 18px;
+    text-align: left;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: inherit;
+  }
+  .faq-q .idx {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--purple-hot);
+    opacity: 0.9;
+  }
+  .faq-q .q { flex: 1; font-size: 0.95rem; font-weight: 600; }
+  .faq-q .chev {
+    width: 9px; height: 9px; flex-shrink: 0;
+    border-right: 2px solid var(--purple-hot);
+    border-bottom: 2px solid var(--purple-hot);
+    transform: rotate(45deg) translate(-2px, -2px);
+    transition: transform 0.3s var(--ease);
+  }
+  .faq-item.open .faq-q .chev { transform: rotate(-135deg) translate(-3px, -3px); }
+  .faq-a {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.35s var(--ease);
+  }
+  .faq-item.open .faq-a { grid-template-rows: 1fr; }
+  .faq-a > p {
+    overflow: hidden;
+    margin: 0;
+    padding: 0 18px;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    color: var(--muted);
+  }
+  .faq-item.open .faq-a > p { padding: 0 18px 18px; }
+
+  /* ─── THE AAL G2 SYSTEM ─── */
+  .g2-funnel {
+    position: relative;
+    height: 130px;
+    margin-top: 28px;
+    opacity: 0.75;
+  }
+  .g2-funnel svg { width: 100%; height: 100%; display: block; }
+  .g2 { padding: 10px 0 120px; }
+  .g2-layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.25fr;
+    gap: 40px;
+    align-items: center;
+  }
+  .g2-copy h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.08;
+    margin: 14px 0 16px;
+  }
+  .g2-lede { color: var(--muted); font-size: 0.98rem; line-height: 1.7; max-width: 46ch; }
+  .g2-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 22px 0 20px;
+  }
+  .g2-pillar {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    font-size: 0.88rem;
+  }
+  .g2-pillar strong {
+    min-width: 84px;
+    color: var(--purple-hot);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .g2-pillar span { color: var(--muted); }
+  /* Two even rows of 3 (Foundation / Growth / Dominance · Capture / Manage / Convert) */
+  .g2-pills {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+    max-width: 420px;
+  }
+  .g2-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 9px 12px;
+    border-radius: 980px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    font-size: 0.76rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: inherit;
+    transition: border-color 0.25s, background 0.25s, transform 0.2s var(--ease);
+    white-space: nowrap;
+  }
+  .g2-pill .dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--pill, var(--purple));
+    box-shadow: 0 0 8px var(--pill, var(--purple));
+  }
+  .g2-pill:hover { transform: translateY(-1px); }
+  .g2-pill.active {
+    border-color: var(--pill, var(--purple));
+    background: color-mix(in srgb, var(--pill, #b44dff) 14%, transparent);
+  }
+  .g2-tiers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    margin-top: 52px;
+  }
+  .g2-tier {
+    position: relative;
+    padding: 24px 22px;
+    border-radius: 18px;
+    border: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  }
+  .g2-tier h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+  .g2-tier-sub { font-size: 0.82rem; font-weight: 600; margin-bottom: 10px; }
+  .g2-tier p { font-size: 0.85rem; line-height: 1.6; color: var(--muted); }
+  .g2-tier-chip {
+    width: 34px; height: 34px; border-radius: 10px; margin-bottom: 14px;
+  }
+  .t-foundation { border-color: rgba(180,77,255,.32); }
+  .t-foundation .g2-tier-chip { background: linear-gradient(145deg,#d478ff,#7c2bd9); box-shadow: 0 0 20px rgba(180,77,255,.45); }
+  .t-foundation .g2-tier-sub { color: #d478ff; }
+  .t-growth { border-color: rgba(34,197,94,.32); }
+  .t-growth .g2-tier-chip { background: linear-gradient(145deg,#5ef08d,#128040); box-shadow: 0 0 20px rgba(34,197,94,.45); }
+  .t-growth .g2-tier-sub { color: #5ef08d; }
+  .t-dominance { border-color: rgba(249,115,22,.32); }
+  .t-dominance .g2-tier-chip { background: linear-gradient(145deg,#ffab5e,#b8480a); box-shadow: 0 0 20px rgba(249,115,22,.45); }
+  .t-dominance .g2-tier-sub { color: #ffab5e; }
+  .g2-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 30px;
+    padding: 20px 26px;
+    border-radius: 980px;
+    border: 1px solid rgba(180,77,255,.22);
+    background: rgba(180,77,255,.05);
+  }
+  .g2-flow-steps {
+    display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+    font-size: 0.78rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  }
+  .g2-flow-steps i { color: var(--purple-hot); font-style: normal; }
+  .g2-flow-tag { font-size: 0.8rem; color: var(--muted); }
+  .g2-flow-tag strong { color: #fff; }
+  @media (max-width: 980px) {
+    .g2-layout { grid-template-columns: 1fr; gap: 32px; }
+    .g2-tiers { grid-template-columns: 1fr; }
+    .g2-funnel { height: 70px; }
+    .g2-flow { border-radius: 22px; justify-content: flex-start; }
+  }
+  .faq-pill {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.02);
+    text-align: left;
+    width: 100%;
+    transition: border-color 0.25s, background 0.25s, transform 0.25s var(--ease);
+  }
+  .faq-pill:hover,
+  .faq-pill.active {
+    border-color: rgba(180, 77, 255, 0.45);
+    background: rgba(180, 77, 255, 0.08);
+    transform: translateX(4px);
+  }
+  .faq-pill .idx {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--purple-hot);
+    background: rgba(180, 77, 255, 0.12);
+    flex-shrink: 0;
+  }
+  .faq-pill .q {
+    font-size: 0.88rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .cube-stage {
+    position: relative;
+    /* +10px each side, +5px top/bottom — cube scale/camera unchanged */
+    width: calc(100% + 20px);
+    margin-left: -10px;
+    margin-right: -10px;
+    height: min(810px, calc(90vw + 22px));
+    box-sizing: border-box;
+    /* Breathing room so float doesn't kiss the clip edge */
+    padding: 19px 24px;
+    border-radius: 28px;
+    border: 1px solid rgba(180, 77, 255, 0.2);
+    background:
+      radial-gradient(ellipse 70% 60% at 50% 50%, rgba(124, 43, 217, 0.2), transparent 70%),
+      linear-gradient(180deg, #0a0a12 0%, #050508 100%);
+    box-shadow:
+      0 40px 100px -30px rgba(0,0,0,0.9),
+      inset 0 0 80px rgba(180, 77, 255, 0.06);
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .cube-stage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(180, 77, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(180, 77, 255, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 50%, black, transparent);
+    pointer-events: none;
+  }
+  /* Must match live canvas id (was #faq-canvas — Safari only showed a corner) */
+  #g2-canvas,
+  #faq-canvas {
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: grab;
+    touch-action: none;
+  }
+  #g2-canvas:active,
+  #faq-canvas:active { cursor: grabbing; }
+  .cube-face-label {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    transform: translateX(-50%);
+    z-index: 5;
+    padding: 10px 18px;
+    border-radius: 980px;
+    border: 1px solid var(--label, rgba(180, 77, 255, 0.35));
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(12px);
+    transition: border-color 0.4s var(--ease);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--purple-hot);
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .cube-dots {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 5;
+  }
+  .cube-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+  }
+  .cube-dot.active {
+    background: var(--purple-hot);
+    box-shadow: 0 0 12px var(--purple);
+    transform: scale(1.25);
+  }
+
+  /* ─── CTA ─── */
+  .cta {
+    padding: 40px 0 120px;
+  }
+  .cta-panel {
+    position: relative;
+    border-radius: 28px;
+    padding: clamp(48px, 8vw, 80px) clamp(28px, 6vw, 64px);
+    text-align: center;
+    overflow: hidden;
+    border: 1px solid rgba(180, 77, 255, 0.3);
+    background:
+      radial-gradient(ellipse 80% 80% at 50% 0%, rgba(180, 77, 255, 0.22), transparent 55%),
+      linear-gradient(165deg, #12121c 0%, #08080c 100%);
+    box-shadow: 0 40px 100px -30px rgba(0,0,0,0.85), 0 0 60px rgba(180, 77, 255, 0.12);
+  }
+  .cta-panel h2 {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    max-width: 640px;
+    margin: 0 auto 16px;
+  }
+  .cta-panel p {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 480px;
+    margin: 0 auto 32px;
+  }
+  .cta-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 40px 0 48px;
+  }
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .footer-brand img {
+    height: 36px;
+    width: auto;
+    opacity: 0.9;
+  }
+  .footer-meta {
+    font-size: 0.78rem;
+    color: var(--dim);
+  }
+  .footer-links {
+    display: flex;
+    gap: 24px;
+  }
+  .footer-links a {
+    font-size: 0.82rem;
+    color: var(--muted);
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: #fff; }
+
+  /* ─── MOBILE ─── */
+  @media (max-width: 1024px) {
+    .channel-row { grid-template-columns: repeat(4, 1fr); }
+    .feature-grid { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .faq-layout { grid-template-columns: 1fr; gap: 36px; }
+    .g2-layout { grid-template-columns: 1fr; gap: 32px; }
+    .cube-stage {
+      height: min(750px, calc(94vw + 22px));
+      order: -1;
+      width: calc(100% + 20px);
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 19px 24px;
+    }
+  }
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: flex; }
+    .nav.open .nav-links {
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      padding: 20px 24px 28px;
+      background: rgba(0,0,0,0.96);
+      border-bottom: 1px solid var(--border);
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .hero { padding-top: calc(var(--nav-h) + 32px); }
+    .hero-stats { grid-template-columns: 1fr; }
+    .channel-row { grid-template-columns: repeat(2, 1fr); }
+    .feature-grid { grid-template-columns: 1fr; }
+    .steps { grid-template-columns: 1fr; }
+    .section { padding: 80px 0; }
+    .footer-inner { flex-direction: column; align-items: flex-start; }
+
+    .g2 { padding: 8px 0 72px; }
+    .g2-funnel { height: 72px; margin-top: 12px; }
+    .cube-stage {
+      height: min(calc(100vw + 22px), 590px);
+      min-height: 470px;
+      width: calc(100% + 20px);
+      max-width: none;
+      margin-left: -10px;
+      margin-right: -10px;
+      padding: 17px 22px;
+      border-radius: 20px;
+    }
+    .cube-face-label {
+      bottom: 12px;
+      padding: 8px 14px;
+      font-size: 0.65rem;
+    }
+    .cube-dots { top: 12px; }
+  }
+
+  /* reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.8s var(--ease), transform 0.8s var(--ease);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ─── AAL CONVERSION CHATBOT ─── */
+  .aal-chat-root {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    z-index: 9990;
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  .aal-chat-fab {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    /* Carlos 7/30: calmer fab — less overpowered purple bloom */
+    background: linear-gradient(145deg, rgba(150, 75, 210, 0.95), rgba(95, 40, 165, 0.98));
+    box-shadow:
+      0 6px 18px rgba(109, 40, 180, 0.28),
+      0 0 0 1px rgba(255,255,255,0.08) inset;
+    transition: transform 0.3s var(--ease), box-shadow 0.3s;
+    position: relative;
+  }
+  .aal-chat-fab:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 22px rgba(109, 40, 180, 0.36), 0 0 0 1px rgba(255,255,255,0.1) inset;
+  }
+  .aal-chat-fab svg { width: 26px; height: 26px; fill: none; stroke: #fff; stroke-width: 1.8; }
+  .aal-chat-fab .fab-x { display: none; }
+  .aal-chat-root.open .aal-chat-fab .fab-chat { display: none; }
+  .aal-chat-root.open .aal-chat-fab .fab-x { display: block; }
+  .aal-chat-badge {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    border-radius: 980px;
+    background: #fff;
+    color: var(--purple-deep);
+    font-size: 0.65rem;
+    font-weight: 800;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  }
+  .aal-chat-root.open .aal-chat-badge { display: none; }
+
+  .aal-chat-panel {
+    position: absolute;
+    right: 0;
+    bottom: 76px;
+    width: min(400px, calc(100vw - 28px));
+    height: min(640px, calc(100dvh - 110px));
+    display: flex;
+    flex-direction: column;
+    border-radius: 22px;
+    border: 1px solid rgba(180, 77, 255, 0.22);
+    background: linear-gradient(180deg, #0c0c12 0%, #07070b 100%);
+    box-shadow:
+      0 28px 70px -18px rgba(0,0,0,0.85),
+      0 0 28px rgba(109, 40, 180, 0.08);
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(16px) scale(0.96);
+    transform-origin: bottom right;
+    transition: opacity 0.28s var(--ease), transform 0.28s var(--ease), visibility 0.28s;
+  }
+  .aal-chat-root.open .aal-chat-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .aal-chat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, rgba(180, 77, 255, 0.05), transparent);
+    flex-shrink: 0;
+  }
+  .aal-chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(140, 70, 200, 0.95), rgba(95, 40, 165, 0.98));
+    display: grid;
+    place-items: center;
+    box-shadow: 0 0 10px rgba(109, 40, 180, 0.22);
+    flex-shrink: 0;
+  }
+  .aal-chat-avatar img {
+    width: 28px;
+    height: auto;
+    filter: brightness(1.1);
+  }
+  .aal-chat-identity { flex: 1; min-width: 0; }
+  .aal-chat-identity strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+  .aal-chat-status {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.68rem;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+  .aal-chat-status .live {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+    animation: pulse 2s infinite;
+  }
+  .aal-chat-h-actions {
+    display: flex;
+    gap: 4px;
+  }
+  .aal-chat-icon-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    display: grid;
+    place-items: center;
+    color: var(--muted);
+    transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .aal-chat-icon-btn:hover {
+    border-color: rgba(180, 77, 255, 0.4);
+    color: #fff;
+    background: rgba(180, 77, 255, 0.08);
+  }
+  .aal-chat-icon-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .aal-chat-icon-btn svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.8; }
+  .aal-chat-icon-btn.voice-ready {
+    border-color: rgba(52, 211, 153, 0.45);
+    color: var(--green);
+  }
+
+  .aal-chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    scroll-behavior: smooth;
+  }
+  .aal-msg {
+    max-width: 92%;
+    animation: aalMsgIn 0.35s var(--ease) both;
+  }
+  @keyframes aalMsgIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: none; }
+  }
+  .aal-msg.bot { align-self: flex-start; }
+  .aal-msg.user { align-self: flex-end; }
+  .aal-msg-bubble {
+    padding: 12px 14px;
+    border-radius: 16px;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  .aal-msg.bot .aal-msg-bubble {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+    border-bottom-left-radius: 6px;
+  }
+  .aal-msg.user .aal-msg-bubble {
+    background: linear-gradient(135deg, rgba(180, 77, 255, 0.2), rgba(124, 43, 217, 0.26));
+    border: 1px solid rgba(180, 77, 255, 0.26);
+    border-bottom-right-radius: 6px;
+  }
+  .aal-msg-bubble p { margin: 0 0 0.55em; }
+  .aal-msg-bubble p:last-child { margin-bottom: 0; }
+  .aal-msg-bubble ul {
+    margin: 0.35em 0 0.55em;
+    padding-left: 1.15em;
+  }
+  .aal-msg-bubble li { margin: 0.2em 0; color: rgba(248,249,252,0.88); }
+  .aal-msg-bubble strong { color: #fff; font-weight: 600; }
+  .aal-msg-bubble a { color: var(--purple-hot); text-decoration: underline; text-underline-offset: 2px; }
+  .aal-msg-meta {
+    font-size: 0.62rem;
+    color: var(--dim);
+    margin-top: 5px;
+    padding: 0 4px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.04em;
+  }
+  .aal-msg.user .aal-msg-meta { text-align: right; }
+
+  .aal-typing {
+    display: inline-flex;
+    gap: 5px;
+    padding: 14px 16px;
+    border-radius: 16px;
+    border-bottom-left-radius: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border);
+  }
+  .aal-typing span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--purple-hot);
+    animation: aalType 1.2s infinite ease-in-out;
+  }
+  .aal-typing span:nth-child(2) { animation-delay: 0.15s; }
+  .aal-typing span:nth-child(3) { animation-delay: 0.3s; }
+  @keyframes aalType {
+    0%, 80%, 100% { opacity: 0.25; transform: translateY(0); }
+    40% { opacity: 1; transform: translateY(-3px); }
+  }
+
+  .aal-chat-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 14px 10px;
+    flex-shrink: 0;
+  }
+  .aal-chip {
+    padding: 7px 12px;
+    border-radius: 980px;
+    border: 1px solid rgba(180, 77, 255, 0.28);
+    background: rgba(180, 77, 255, 0.08);
+    font-size: 0.72rem;
+    font-weight: 550;
+    color: var(--purple-hot);
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    white-space: nowrap;
+  }
+  .aal-chip:hover {
+    background: rgba(180, 77, 255, 0.16);
+    border-color: rgba(180, 77, 255, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .aal-chat-compose {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 12px 12px 14px;
+    border-top: 1px solid var(--border);
+    background: rgba(0,0,0,0.35);
+    flex-shrink: 0;
+  }
+  .aal-chat-compose textarea {
+    flex: 1;
+    resize: none;
+    min-height: 42px;
+    max-height: 110px;
+    padding: 11px 14px;
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    background: rgba(255,255,255,0.04);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.88rem;
+    line-height: 1.4;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .aal-chat-compose textarea:focus {
+    border-color: rgba(180, 77, 255, 0.55);
+    box-shadow: 0 0 0 3px rgba(180, 77, 255, 0.12);
+  }
+  .aal-chat-compose textarea::placeholder { color: var(--dim); }
+  .aal-chat-send {
+    width: 42px;
+    height: 42px;
+    border-radius: 12px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(150, 75, 210, 0.95), rgba(100, 42, 170, 0.98));
+    box-shadow: 0 3px 10px rgba(109, 40, 180, 0.22);
+    transition: transform 0.2s, opacity 0.2s;
+  }
+  .aal-chat-send:hover { transform: scale(1.05); }
+  .aal-chat-send:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+  .aal-chat-send svg { width: 18px; height: 18px; stroke: #fff; fill: none; stroke-width: 2; }
+
+  .aal-chat-footer-note {
+    padding: 0 14px 10px;
+    font-size: 0.6rem;
+    color: var(--dim);
+    text-align: center;
+    letter-spacing: 0.02em;
+    flex-shrink: 0;
+  }
+  .aal-chat-footer-note span {
+    color: rgba(200, 180, 230, 0.75);
+    font-weight: 500;
+  }
+
+  .aal-lead-card {
+    margin-top: 8px;
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px solid rgba(180, 77, 255, 0.25);
+    background: rgba(180, 77, 255, 0.06);
+  }
+  .aal-lead-card label {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin: 8px 0 4px;
+  }
+  .aal-lead-card label:first-child { margin-top: 0; }
+  .aal-lead-card input,
+  .aal-lead-card select {
+    width: 100%;
+    padding: 9px 11px;
+    border-radius: 10px;
+    border: 1px solid var(--border-strong);
+    background: rgba(0,0,0,0.35);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 0.84rem;
+    outline: none;
+  }
+  .aal-lead-card input:focus,
+  .aal-lead-card select:focus {
+    border-color: rgba(180, 77, 255, 0.55);
+  }
+  .aal-lead-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .aal-lead-actions button {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 0.78rem;
+    font-weight: 600;
+  }
+  .aal-lead-submit {
+    background: linear-gradient(135deg, rgba(150, 75, 210, 0.95), rgba(100, 42, 170, 0.98));
+    color: #fff;
+    box-shadow: 0 2px 10px rgba(109, 40, 180, 0.18);
+  }
+  .aal-lead-cancel {
+    border: 1px solid var(--border-strong);
+    color: var(--muted);
+  }
+
+  .aal-voice-banner {
+    display: none;
+    align-items: center;
+    gap: 10px;
+    margin: 0 14px 10px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px dashed rgba(180, 77, 255, 0.35);
+    background: rgba(180, 77, 255, 0.06);
+    font-size: 0.72rem;
+    color: var(--muted);
+    line-height: 1.4;
+    flex-shrink: 0;
+  }
+  .aal-voice-banner.show { display: flex; }
+  .aal-voice-banner strong { color: var(--purple-hot); }
+
+  @media (max-width: 480px) {
+    .aal-chat-root { right: 14px; bottom: 14px; }
+    .aal-chat-panel {
+      width: calc(100vw - 28px);
+      height: min(78dvh, 620px);
+      bottom: 72px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="AAL Xolutions home">
+      <img class="brand-logo" src="assets/aal-logo.png" alt="AAL Xolutions">
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="/" class="nav-back" aria-label="Back to Innovative Blockchain Solutions site">← Back to site</a>
+      <a href="#system">Platform</a>
+      <a href="#g2">G2 System</a>
+      <a href="#features">Capabilities</a>
+      <a href="#process">Process</a>
+      <a href="#faq">FAQ</a>
+      <a href="#cta" class="nav-cta" data-allie>Talk to Allie</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg" aria-hidden="true">
+    <video
+      class="hero-video"
+      id="heroBgVideo"
+      autoplay
+      muted
+      loop
+      playsinline
+      webkit-playsinline
+      preload="auto"
+      poster="assets/hero-bg-poster.jpg"
+    >
+      <source src="assets/hero-bg.mp4" type="video/mp4">
+    </video>
+    <div class="hero-grid"></div>
+    <div class="hero-orb"></div>
+  </div>
+  <div class="wrap hero-inner">
+    <div class="hero-badge"><span class="dot"></span> Visibility &amp; Lead Infrastructure</div>
+    <h1>Become<br><span class="accent">Impossible to Ignore.</span></h1>
+    <p class="hero-sub">
+      Get found. Build trust. Capture every lead. <strong>AAL Xolutions</strong>
+      is the visibility and lead-generation infrastructure that turns the attention
+      you earn into booked business. Foundation first, Growth next.
+    </p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn btn-primary" data-allie>Talk to Allie →</a>
+      <a href="#system" class="btn btn-ghost">See the System</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-val">8+</div>
+        <div class="hero-stat-lbl">Channels Captured</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">1</div>
+        <div class="hero-stat-lbl">Book Of Business</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-val">∞</div>
+        <div class="hero-stat-lbl">Leads Captured</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEM GRAPHIC -->
+<section class="system" id="system">
+  <div class="wrap-wide">
+    <div class="section-head reveal">
+      <div class="eyebrow">The Capture Layer</div>
+      <h2>Every channel feeds <span class="accent">one system.</span></h2>
+      <p>Instagram, Facebook, TikTok, YouTube, Google Business, Search, your website, and QR codes, all feeding into AAL Xolutions in real time.</p>
+    </div>
+    <div class="system-tilt-wrap">
+      <div class="system-frame" id="systemFrame">
+        <div class="system-glow" aria-hidden="true"></div>
+        <div class="system-media">
+          <video
+            id="systemVideo"
+            class="system-video"
+            muted
+            loop
+            playsinline
+            webkit-playsinline
+            preload="auto"
+            poster="assets/aal-system-poster.jpg"
+            aria-label="AAL Xolutions system · visibility and lead capture in motion"
+          >
+            <source src="assets/AALXolutions.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="system-saber" id="systemSaber" aria-hidden="true"></div>
+      </div>
+    </div>
+    <div class="system-caption reveal">
+      <span><i></i> Live multi-channel intake</span>
+      <span><i></i> Unified lead pipeline</span>
+      <span><i></i> Instant mobile alerts</span>
+      <span><i></i> Source attribution built in</span>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section class="channels">
+  <div class="wrap-wide">
+    <div class="channel-row reveal">
+      <article class="channel-card">
+        <div class="channel-icon ig">ig</div>
+        <h3>Instagram</h3>
+        <p>Posts, Reels, Stories</p>
+      </article>
+      <article class="channel-card">
+        <div class="channel-icon fb">f</div>
+        <h3>Facebook</h3>
+        <p>Posts, Ads, Profile</p>
+      </article>
+      <article class="channel-card">
+        <div class="channel-icon tt">♪</div>
+        <h3>TikTok</h3>
+        <p>Videos, Bio, Profile</p>
+      </article>
+      <article class="channel-card">
+        <div class="channel-icon yt">▶</div>
+        <h3>YouTube</h3>
+        <p>Channel, Videos</p>
+      </article>
+      <article class="channel-card">
+        <div class="channel-icon gb">G</div>
+        <h3>Google Biz</h3>
+        <p>Profile, Maps</p>
+      </article>
+      <article class="channel-card">
+        <div class="channel-icon gs">G</div>
+        <h3>Google Search</h3>
+        <p>Organic Results</p>
+      </article>
+      <article class="channel-card">
+        <div class="channel-icon web">◎</div>
+        <h3>Website</h3>
+        <p>Forms & Landing</p>
+      </article>
+      <article class="channel-card">
+        <div class="channel-icon qr">▣</div>
+        <h3>QR Codes</h3>
+        <p>Print & Digital</p>
+      </article>
+    </div>
+    <!-- Beams carrying the channels above down into the cube below. -->
+    <div class="g2-funnel" aria-hidden="true">
+      <svg viewBox="0 0 1200 130" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="beamGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#b44dff" stop-opacity="0"/>
+            <stop offset="45%" stop-color="#d478ff" stop-opacity=".85"/>
+            <stop offset="100%" stop-color="#b44dff" stop-opacity=".25"/>
+          </linearGradient>
+        </defs>
+        <g fill="none" stroke="url(#beamGrad)" stroke-width="2" stroke-linecap="round">
+          <path d="M75 0 C75 70, 600 50, 600 130"/>
+          <path d="M225 0 C225 70, 600 50, 600 130"/>
+          <path d="M375 0 C375 70, 600 55, 600 130"/>
+          <path d="M525 0 C525 75, 600 60, 600 130"/>
+          <path d="M675 0 C675 75, 600 60, 600 130"/>
+          <path d="M825 0 C825 70, 600 55, 600 130"/>
+          <path d="M975 0 C975 70, 600 50, 600 130"/>
+          <path d="M1125 0 C1125 70, 600 50, 600 130"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- G2 SYSTEM CUBE -->
+<section class="g2" id="g2">
+  <div class="wrap-wide">
+    <div class="g2-layout">
+      <div class="g2-copy reveal">
+        <div class="eyebrow">Everywhere you show up</div>
+        <h2>One system that <span class="accent">captures it all.</span></h2>
+        <p class="g2-lede">
+          Our system connects every source of traffic, captures every lead,
+          and turns attention into real business.
+        </p>
+        <div class="g2-pillars">
+          <div class="g2-pillar"><strong>Capture</strong><span>From every platform people find you on.</span></div>
+          <div class="g2-pillar"><strong>Manage</strong><span>All leads in one smart dashboard.</span></div>
+          <div class="g2-pillar"><strong>Convert</strong><span>Automate follow-ups and close more deals.</span></div>
+        </div>
+        <div class="g2-pills" id="g2Pills"></div>
+        <div class="faq-hints">
+          <span class="faq-hint"><kbd>Drag</kbd> turn the cube</span>
+          <span class="faq-hint"><kbd>Click</kbd> or use the pills</span>
+        </div>
+      </div>
+      <div class="cube-stage reveal">
+        <canvas id="g2-canvas" aria-label="The AAL G2 System, an interactive cube"></canvas>
+      </div>
+    </div>
+
+    <div class="g2-tiers reveal">
+      <article class="g2-tier t-foundation">
+        <div class="g2-tier-chip"></div>
+        <h3>Tier 1: G2 Foundation</h3>
+        <div class="g2-tier-sub">Build the infrastructure.</div>
+        <p>We build the essential pieces to make sure your business is set up to capture, organize, and respond to every lead.</p>
+      </article>
+      <article class="g2-tier t-growth">
+        <div class="g2-tier-chip"></div>
+        <h3>Tier 2: G2 Growth</h3>
+        <div class="g2-tier-sub">Create visibility and demand.</div>
+        <p>We create the content, optimize for search, and distribute across platforms to attract organic attention and new leads.</p>
+      </article>
+      <article class="g2-tier t-dominance">
+        <div class="g2-tier-chip"></div>
+        <h3>Tier 3: G2 Dominance</h3>
+        <div class="g2-tier-sub">Amplify and convert at scale.</div>
+        <p>We use paid traffic, AI automation, and advanced follow-up systems to convert more leads and scale your business.</p>
+      </article>
+    </div>
+
+    <div class="g2-flow reveal">
+      <div class="g2-flow-steps">
+        <span>Visibility</span><i>→</i><span>Capture</span><i>→</i><span>Nurture</span><i>→</i><span>Convert</span><i>→</i><span>Scale</span>
+      </div>
+      <div class="g2-flow-tag"><strong>One system. Endless growth.</strong> Everything connected. Everything tracked.</div>
+      <a href="#cta" class="btn btn-primary" data-allie>See it in action →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section features" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">Capabilities</div>
+      <h2>Built to <span class="accent">capture every lead.</span></h2>
+      <p>The infrastructure that turns the visibility you earn into a pipeline you can measure.</p>
+    </div>
+    <div class="feature-grid">
+      <article class="feature-card reveal">
+        <div class="feature-num">01 · INTAKE</div>
+        <h3>Unified Capture</h3>
+        <p>Every form, bio link, ad, and QR code lands in one place, with the source, time, and context saved on every lead.</p>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-num">02 · PIPELINE</div>
+        <h3>Clear Stages</h3>
+        <p>New Lead → Contacted → Qualified → Proposal → Won. Clear stages and live counts, so you always know the next step on a deal.</p>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-num">03 · ALERTS</div>
+        <h3>Instant Alerts</h3>
+        <p>A new lead reaches your phone the second it comes in, whether it started on an Instagram form, your Google profile, or a TikTok link.</p>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-num">04 · ATTRIBUTION</div>
+        <h3>Source Tracking</h3>
+        <p>See which channels actually convert, so you can put more into what works and stop paying for what doesn't.</p>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-num">05 · AUTOMATIONS</div>
+        <h3>Follow-Up</h3>
+        <p>Sequences, reminders, and workflows that keep every lead warm without you living in your inbox.</p>
+      </article>
+      <article class="feature-card reveal">
+        <div class="feature-num">06 · REPORTING</div>
+        <h3>Dashboard</h3>
+        <p>Total leads, booked calls, and conversion rates in one clear view for the people running the business.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow">How It Works</div>
+      <h2>From first touch to <span class="accent">booked business.</span></h2>
+      <p>Four steps, start to finish.</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step">
+        <div class="step-n">01</div>
+        <h3>Connect Channels</h3>
+        <p>Wire Instagram, Meta, TikTok, YouTube, Google, site forms, and QR destinations into AAL.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">02</div>
+        <h3>Capture Everything</h3>
+        <p>Traffic turns into structured leads automatically, with name, source, intent, and contact captured.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">03</div>
+        <h3>Route & Alert</h3>
+        <p>Leads enter your pipeline stages. Your team gets real-time alerts on mobile and desktop.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">04</div>
+        <h3>Convert & Scale</h3>
+        <p>Work your leads, close deals, and reinvest in the channels the data shows are working.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ CUBE -->
+<section class="faq" id="faq">
+  <div class="wrap-wide">
+    <div class="faq-tilt-wrap">
+      <div class="faq-frame" id="faqFrame">
+        <div class="faq-layout">
+          <div class="faq-copy reveal">
+            <div class="eyebrow">Questions</div>
+            <h2>The things<br>people ask.</h2>
+            <p>Straight answers, no runaround. Still stuck? Allie picks up any time.</p>
+            <a href="#cta" class="btn btn-ghost" data-allie>Ask Allie →</a>
+          </div>
+          <div class="faq-list reveal" id="faqList"></div>
+        </div>
+        <div class="faq-saber" id="faqSaber" aria-hidden="true"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="cta">
+  <div class="wrap">
+    <div class="cta-panel reveal">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:18px;">Ready When You Are</div>
+      <h2>Become impossible to ignore.</h2>
+      <p>Talk to Allie. She maps your visibility, checks your Foundation fit, and gets the right leads flowing into one book of business.</p>
+      <div class="cta-actions">
+        <a href="#cta" class="btn btn-primary" data-allie>Talk to Allie →</a>
+        <a href="#system" class="btn btn-ghost">Review the System</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="assets/aal-logo.png" alt="AAL Xolutions">
+      <div class="footer-meta">Helping businesses become impossible to ignore.<br>© 2026 AAL Xolutions. All rights reserved.</div>
+    </div>
+    <div class="footer-links">
+      <a href="#system">Platform</a>
+      <a href="#features">Capabilities</a>
+      <a href="#faq">FAQ</a>
+      <!-- No mailto: AAL has no confirmed email domain yet. Routes to Allie,
+           who captures the lead properly, with the live line as a fallback. -->
+      <a href="#cta" data-allie>Contact</a>
+      <a href="tel:+17022682131">(702) 268-2131</a>
+    </div>
+  </div>
+</footer>
+
+<!-- AAL Conversion Chatbot -->
+<div class="aal-chat-root" id="aalChat" aria-live="polite">
+  <div class="aal-chat-panel" id="aalChatPanel" role="dialog" aria-label="AAL marketing assistant">
+    <div class="aal-chat-header">
+      <div class="aal-chat-avatar" aria-hidden="true">
+        <img src="assets/aal-logo.png" alt="">
+      </div>
+      <div class="aal-chat-identity">
+        <strong>Allie</strong>
+        <div class="aal-chat-status"><span class="live"></span> Online · AI receptionist</div>
+      </div>
+      <div class="aal-chat-h-actions">
+        <!-- syncVoiceUI() rewrites the title on load; these are the no-JS defaults. -->
+        <button type="button" class="aal-chat-icon-btn" id="aalVoiceBtn" title="Call Allie (702) 268-2131" aria-label="Call Allie">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </button>
+        <button type="button" class="aal-chat-icon-btn" id="aalChatClose" aria-label="Close chat">
+          <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="aal-chat-messages" id="aalChatMessages"></div>
+
+    <div class="aal-voice-banner" id="aalVoiceBanner">
+      <div><strong>Voice ready.</strong> Call Allie any time, or leave your details and the team will follow up.</div>
+    </div>
+
+    <div class="aal-chat-quick" id="aalChatQuick"></div>
+
+    <div class="aal-chat-compose">
+      <textarea id="aalChatInput" rows="1" placeholder="Ask about the Foundation, pricing, or your fit" maxlength="800" aria-label="Message"></textarea>
+      <button type="button" class="aal-chat-send" id="aalChatSend" aria-label="Send">
+        <svg viewBox="0 0 24 24"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </div>
+    <div class="aal-chat-footer-note">Allie · qualifies + books · <span>call (702) 268-2131</span></div>
+  </div>
+
+  <button type="button" class="aal-chat-fab" id="aalChatFab" aria-label="Open AAL strategist chat" aria-expanded="false">
+    <svg class="fab-chat" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <svg class="fab-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    <span class="aal-chat-badge" id="aalChatBadge">1</span>
+  </button>
+</div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+
+/* ─── NAV ─── */
+const nav = document.getElementById('nav');
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('on', window.scrollY > 24);
+}, { passive: true });
+navToggle?.addEventListener('click', () => nav.classList.toggle('open'));
+navLinks?.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => nav.classList.remove('open'));
+});
+
+/* ─── HERO BG VIDEO ─── */
+(function () {
+  const v = document.getElementById('heroBgVideo');
+  if (!v) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    v.removeAttribute('autoplay');
+    v.pause();
+    return;
+  }
+  v.muted = true;
+  const tryPlay = () => {
+    const p = v.play();
+    if (p && typeof p.catch === 'function') p.catch(() => {});
+  };
+  tryPlay();
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) tryPlay();
+  });
+})();
+
+/* ─── REVEAL ─── */
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ─── FAQ DATA ─── */
+const FAQS = [
+  {
+    short: 'What is AAL?',
+    q: 'What is AAL Xolutions?',
+    a: 'AAL Xolutions is visibility and lead-generation infrastructure. We help businesses get found, build trust, and capture every lead in one place, so no opportunity is left behind.'
+  },
+  {
+    short: 'Who is it for?',
+    q: 'Who is AAL Xolutions built for?',
+    a: 'Local and growing businesses that show up in a lot of places but still lose leads in DMs, forms, and ad platforms. If you are getting attention, AAL Xolutions turns it into booked business.'
+  },
+  {
+    short: 'What channels?',
+    q: 'Which channels do you capture?',
+    a: 'Instagram (posts, reels, stories), Facebook, TikTok, YouTube, Google Business and Search, website forms and landing pages, plus QR codes for print and digital.'
+  },
+  {
+    short: 'How fast?',
+    q: 'How fast do leads show up?',
+    a: 'In real time. New leads reach your dashboard and phone the moment they come in, with the source attached so you know where each one came from.'
+  },
+  {
+    short: 'CRM ready?',
+    q: 'Does this feed my CRM?',
+    a: 'Yes. AAL Xolutions is the front-end capture layer for your CRM. One intake path, clean records, and a pipeline your team can actually work.'
+  },
+  {
+    short: 'Getting started',
+    q: 'How do we get started?',
+    a: 'Talk to Allie. She learns about your business, checks your Foundation fit, and gets you set up with capture, stages, and alerts in one place.'
+  }
+];
+
+/* ─── FAQ ACCORDION (cube moved out to the G2 section) ─── */
+const faqList = document.getElementById('faqList');
+
+FAQS.forEach((faq, i) => {
+  const item = document.createElement('div');
+  item.className = 'faq-item' + (i === 0 ? ' open' : '');
+
+  const btn = document.createElement('button');
+  btn.className = 'faq-q';
+  btn.type = 'button';
+  btn.setAttribute('aria-expanded', i === 0 ? 'true' : 'false');
+  btn.innerHTML = `<span class="idx">${String(i + 1).padStart(2, '0')}</span><span class="q">${faq.q}</span><span class="chev" aria-hidden="true"></span>`;
+
+  const ans = document.createElement('div');
+  ans.className = 'faq-a';
+  ans.innerHTML = `<p>${faq.a}</p>`;
+
+  btn.addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    faqList.querySelectorAll('.faq-item').forEach(el => {
+      el.classList.remove('open');
+      el.querySelector('.faq-q')?.setAttribute('aria-expanded', 'false');
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      btn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  item.appendChild(btn);
+  item.appendChild(ans);
+  faqList.appendChild(item);
+});
+
+/* ─── THE AAL G2 SYSTEM CUBE ───────────────────────────────
+   Six faces: the three G2 tiers as 3x3 capability grids, plus the
+   three system pillars. Tile labels and tier copy are taken verbatim
+   from Carlos's G2 System reference graphic. */
+/* Face art: Carlos creatives Jul 30 (assets/g2/*.jpg). Procedural canvas is fallback only. */
+const G2_FACES = [
+  {
+    key: 'foundation',
+    short: 'G2 Foundation',
+    kicker: 'Tier 1',
+    title: 'G2 FOUNDATION',
+    sub: 'Build the Infrastructure',
+    accent: '#b44dff', hot: '#d478ff', deep: '#7c2bd9',
+    image: 'assets/g2/foundation.jpg',
+    tiles: [
+      'GBP\nOPTIMIZATION', 'SOCIAL PROFILE\nOPTIMIZATION', 'WEBSITE /\nLANDING PAGE',
+      'REVIEW\nAUTOMATION', null, 'LEAD CAPTURE\nFORMS',
+      'LEAD / REVIEW\nCAPTURE', 'CRM &\nPIPELINE', 'DM & COMMENT\nTRIGGERS'
+    ]
+  },
+  {
+    key: 'growth',
+    short: 'G2 Growth',
+    kicker: 'Tier 2',
+    title: 'G2 GROWTH',
+    sub: 'Create Visibility & Demand',
+    accent: '#22c55e', hot: '#5ef08d', deep: '#128040',
+    image: 'assets/g2/growth.jpg',
+    tiles: [
+      'CONTENT\nCREATION', 'INDUSTRY\nRESEARCH', 'SEARCH TOPIC\nRESEARCH',
+      'SHORT-FORM\nVIDEO', null, 'COPYWRITING\n& SCRIPTING',
+      'SOCIAL\nPUBLISHING', 'GOOGLE\nCONTENT', 'ORGANIC\nLEAD GEN'
+    ]
+  },
+  {
+    key: 'dominance',
+    short: 'G2 Dominance',
+    kicker: 'Tier 3',
+    title: 'G2 DOMINANCE',
+    sub: 'Amplify & Convert at Scale',
+    accent: '#f97316', hot: '#ffab5e', deep: '#b8480a',
+    image: 'assets/g2/dominance.jpg',
+    tiles: [
+      'PAID\nADVERTISING', 'RETARGETING\nCAMPAIGNS', 'AI VOICE /\nACQUISITION AGENTS',
+      'AI FOLLOW-UP\n& NURTURING', null, 'ADVANCED\nAUTOMATION',
+      'LEAD\nQUALIFICATION', 'APPOINTMENT\nBOOKING', 'SCALE\nCAMPAIGNS'
+    ]
+  },
+  {
+    key: 'capture', short: 'Capture', kicker: 'The System', title: 'CAPTURE',
+    sub: 'From every platform people find you on.',
+    accent: '#b44dff', hot: '#d478ff', deep: '#7c2bd9',
+    image: 'assets/g2/capture.jpg', tiles: null
+  },
+  {
+    key: 'manage', short: 'Manage', kicker: 'The System', title: 'MANAGE',
+    sub: 'All leads in one smart dashboard.',
+    accent: '#22c55e', hot: '#5ef08d', deep: '#128040',
+    image: 'assets/g2/manage.jpg', tiles: null
+  },
+  {
+    key: 'convert', short: 'Convert', kicker: 'The System', title: 'CONVERT',
+    sub: 'Automate follow-ups and close more deals.',
+    accent: '#f97316', hot: '#ffab5e', deep: '#b8480a',
+    image: 'assets/g2/convert.jpg', tiles: null
+  }
+];
+
+const g2Pills = document.getElementById('g2Pills');
+
+G2_FACES.forEach((face, i) => {
+  const btn = document.createElement('button');
+  btn.className = 'g2-pill' + (i === 0 ? ' active' : '');
+  btn.type = 'button';
+  btn.style.setProperty('--pill', face.accent);
+  btn.innerHTML = `<span class="dot"></span>${face.short}`;
+  btn.addEventListener('click', () => snapToFace(i));
+  g2Pills.appendChild(btn);
+});
+
+function setActiveFace(index) {
+  document.querySelectorAll('.g2-pill').forEach((el, i) => el.classList.toggle('active', i === index));
+}
+
+const canvas = document.getElementById('g2-canvas');
+const stage = canvas.parentElement;
+
+function makeG2FaceTexture(face) {
+  const size = 1024;
+  const c = document.createElement('canvas');
+  c.width = size; c.height = size;
+  const ctx = c.getContext('2d');
+
+  const hex = (h, a) => {
+    const n = parseInt(h.slice(1), 16);
+    return `rgba(${(n >> 16) & 255}, ${(n >> 8) & 255}, ${n & 255}, ${a})`;
+  };
+
+  // Base plate, tinted toward the tier colour
+  const g = ctx.createLinearGradient(0, 0, size, size);
+  g.addColorStop(0, '#0d0812');
+  g.addColorStop(0.5, '#070509');
+  g.addColorStop(1, '#100a18');
+  ctx.fillStyle = g;
+  ctx.fillRect(0, 0, size, size);
+  const glow = ctx.createRadialGradient(size / 2, size * 0.42, 0, size / 2, size * 0.42, size * 0.72);
+  glow.addColorStop(0, hex(face.accent, 0.16));
+  glow.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = glow;
+  ctx.fillRect(0, 0, size, size);
+
+  // Outer edge
+  ctx.strokeStyle = hex(face.accent, 0.55);
+  ctx.lineWidth = 10;
+  roundRect(ctx, 30, 30, size - 60, size - 60, 40);
+  ctx.stroke();
+
+  ctx.textAlign = 'center';
+
+  // Header
+  ctx.fillStyle = hex(face.hot, 0.95);
+  ctx.font = '600 30px JetBrains Mono, monospace';
+  ctx.letterSpacing = '0.22em';
+  ctx.fillText(face.kicker.toUpperCase(), size / 2, 118);
+  ctx.letterSpacing = '0em';
+
+  ctx.fillStyle = '#ffffff';
+  ctx.font = '800 62px Inter, system-ui, sans-serif';
+  ctx.fillText(face.title, size / 2, 190);
+
+  ctx.fillStyle = hex(face.hot, 0.8);
+  ctx.font = '500 30px Inter, system-ui, sans-serif';
+  ctx.fillText(face.sub, size / 2, 238);
+
+  if (!face.tiles) {
+    // Pillar face: statement only, no grid.
+    ctx.strokeStyle = hex(face.accent, 0.5);
+    ctx.lineWidth = 3;
+    ctx.beginPath();
+    ctx.moveTo(size / 2 - 120, 300); ctx.lineTo(size / 2 + 120, 300);
+    ctx.stroke();
+    ctx.fillStyle = hex(face.accent, 0.5);
+    ctx.font = '600 26px Inter, system-ui, sans-serif';
+    ctx.letterSpacing = '0.24em';
+    ctx.fillText('AAL  G2  SYSTEM', size / 2, size - 90);
+    ctx.letterSpacing = '0em';
+    const tex = new THREE.CanvasTexture(c);
+    tex.colorSpace = THREE.SRGBColorSpace;
+    tex.anisotropy = 8;
+    return tex;
+  }
+
+  // 3x3 capability grid.
+  // Size cells off the REMAINING VERTICAL space, not the full width, or the
+  // third row lands past the bottom of the 1024px texture and gets clipped.
+  const top = 268, bottom = 46, gap = 12;
+  const gridH = size - top - bottom;
+  const cell = (gridH - gap * 2) / 3;
+  const gridW = cell * 3 + gap * 2;
+  const left = (size - gridW) / 2;
+
+  face.tiles.forEach((label, i) => {
+    const cx = left + (i % 3) * (cell + gap);
+    const cy = top + Math.floor(i / 3) * (cell + gap);
+    const center = label === null;
+
+    if (center) {
+      // Tier badge in the middle square
+      const bg = ctx.createLinearGradient(cx, cy, cx + cell, cy + cell);
+      bg.addColorStop(0, hex(face.hot, 0.95));
+      bg.addColorStop(1, hex(face.deep, 0.95));
+      ctx.fillStyle = bg;
+      roundRect(ctx, cx, cy, cell, cell, 18);
+      ctx.fill();
+      ctx.fillStyle = '#ffffff';
+      ctx.font = '800 34px Inter, system-ui, sans-serif';
+      const parts = face.title.split(' ');
+      ctx.fillText(parts[0], cx + cell / 2, cy + cell / 2 - 6);
+      ctx.font = '800 26px Inter, system-ui, sans-serif';
+      ctx.fillText(parts.slice(1).join(' '), cx + cell / 2, cy + cell / 2 + 30);
+      return;
+    }
+
+    ctx.fillStyle = hex(face.accent, 0.07);
+    roundRect(ctx, cx, cy, cell, cell, 18);
+    ctx.fill();
+    ctx.strokeStyle = hex(face.accent, 0.42);
+    ctx.lineWidth = 2.5;
+    roundRect(ctx, cx, cy, cell, cell, 18);
+    ctx.stroke();
+
+    const lines = label.split('\n');
+    ctx.fillStyle = 'rgba(240,240,250,0.94)';
+    ctx.font = '600 25px Inter, system-ui, sans-serif';
+    const lh = 31;
+    const startY = cy + cell / 2 - ((lines.length - 1) * lh) / 2 + 8;
+    lines.forEach((ln, k) => ctx.fillText(ln, cx + cell / 2, startY + k * lh));
+  });
+
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.SRGBColorSpace;
+  tex.anisotropy = 8;
+  return tex;
+}
+
+function roundRect(ctx, x, y, w, h, r) {
+  ctx.beginPath();
+  ctx.moveTo(x + r, y);
+  ctx.arcTo(x + w, y, x + w, y + h, r);
+  ctx.arcTo(x + w, y + h, x, y + h, r);
+  ctx.arcTo(x, y + h, x, y, r);
+  ctx.arcTo(x, y, x + w, y, r);
+  ctx.closePath();
+}
+
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+  let yy = y;
+  for (let n = 0; n < words.length; n++) {
+    const test = line + words[n] + ' ';
+    if (ctx.measureText(test).width > maxWidth && n > 0) {
+      ctx.fillText(line.trim(), x, yy);
+      line = words[n] + ' ';
+      yy += lineHeight;
+    } else {
+      line = test;
+    }
+  }
+  ctx.fillText(line.trim(), x, yy);
+}
+
+const renderer = new THREE.WebGLRenderer({
+  canvas,
+  antialias: true,
+  alpha: true,
+  powerPreference: 'high-performance'
+});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+// Flat exposure — designed face art should read as graphics, not shaded metal
+renderer.toneMapping = THREE.NoToneMapping;
+renderer.toneMappingExposure = 1;
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
+// Keep camera close for readable faces — room comes from the stage frame, not zoom-out
+camera.position.set(0, 0, 6.4);
+
+// Soft lights only (BasicMaterial faces ignore lights; edges/floor still use them)
+scene.add(new THREE.AmbientLight(0xffffff, 0.85));
+const key = new THREE.DirectionalLight(0xffffff, 0.55);
+key.position.set(3, 4, 6);
+scene.add(key);
+const rim = new THREE.DirectionalLight(0xd478ff, 0.35);
+rim.position.set(-5, 2, -3);
+scene.add(rim);
+
+// Soft floor glow
+const floorGeo = new THREE.CircleGeometry(2.4, 64);
+const floorMat = new THREE.MeshBasicMaterial({
+  color: 0xb44dff,
+  transparent: true,
+  opacity: 0.12
+});
+const floor = new THREE.Mesh(floorGeo, floorMat);
+floor.rotation.x = -Math.PI / 2;
+floor.position.y = -1.95;
+scene.add(floor);
+
+// Cube group
+const cubeGroup = new THREE.Group();
+scene.add(cubeGroup);
+
+const texLoader = new THREE.TextureLoader();
+// MeshBasicMaterial = flat, full-brightness face art (text stays readable at any light)
+const materials = G2_FACES.map((face) => {
+  const mat = new THREE.MeshBasicMaterial({
+    map: makeG2FaceTexture(face),
+    toneMapped: false
+  });
+  if (face.image) {
+    texLoader.load(
+      face.image,
+      (tex) => {
+        tex.colorSpace = THREE.SRGBColorSpace;
+        tex.anisotropy = Math.min(8, renderer.capabilities.getMaxAnisotropy?.() || 8);
+        tex.needsUpdate = true;
+        if (mat.map) mat.map.dispose();
+        mat.map = tex;
+        mat.needsUpdate = true;
+      },
+      undefined,
+      () => { /* keep procedural fallback */ }
+    );
+  }
+  return mat;
+});
+
+// Larger geometry so face type fills the stage
+const cube = new THREE.Mesh(new THREE.BoxGeometry(2.85, 2.85, 2.85), materials);
+cubeGroup.add(cube);
+
+// Edge glow wireframe shell (match larger cube)
+const edgeGeo = new THREE.EdgesGeometry(new THREE.BoxGeometry(2.92, 2.92, 2.92));
+const edgeMat = new THREE.LineBasicMaterial({
+  color: 0xd478ff,
+  transparent: true,
+  opacity: 0.4
+});
+const edges = new THREE.LineSegments(edgeGeo, edgeMat);
+cubeGroup.add(edges);
+
+// Outer shell (subtle)
+const shell = new THREE.Mesh(
+  new THREE.BoxGeometry(3.0, 3.0, 3.0),
+  new THREE.MeshBasicMaterial({
+    color: 0xb44dff,
+    transparent: true,
+    opacity: 0.03,
+    side: THREE.BackSide
+  })
+);
+cubeGroup.add(shell);
+
+// Rubik-style grid lines on a slightly larger transparent cube
+function addGridLines() {
+  const group = new THREE.Group();
+  const mat = new THREE.LineBasicMaterial({ color: 0xb44dff, transparent: true, opacity: 0.14 });
+  const s = 1.43;
+  const positions = [-s / 3, s / 3];
+  // three layers look like a Rubik
+  for (const p of positions) {
+    // vertical lines on each face orientation via box edges approximation
+    const pts = [
+      // front face vertical
+      new THREE.Vector3(p, -s, s), new THREE.Vector3(p, s, s),
+      new THREE.Vector3(-s, p, s), new THREE.Vector3(s, p, s),
+      // back
+      new THREE.Vector3(p, -s, -s), new THREE.Vector3(p, s, -s),
+      new THREE.Vector3(-s, p, -s), new THREE.Vector3(s, p, -s),
+      // left
+      new THREE.Vector3(-s, p, -s), new THREE.Vector3(-s, p, s),
+      new THREE.Vector3(-s, -s, p), new THREE.Vector3(-s, s, p),
+      // right
+      new THREE.Vector3(s, p, -s), new THREE.Vector3(s, p, s),
+      new THREE.Vector3(s, -s, p), new THREE.Vector3(s, s, p),
+      // top
+      new THREE.Vector3(-s, s, p), new THREE.Vector3(s, s, p),
+      new THREE.Vector3(p, s, -s), new THREE.Vector3(p, s, s),
+      // bottom
+      new THREE.Vector3(-s, -s, p), new THREE.Vector3(s, -s, p),
+      new THREE.Vector3(p, -s, -s), new THREE.Vector3(p, -s, s)
+    ];
+    for (let i = 0; i < pts.length; i += 2) {
+      const geo = new THREE.BufferGeometry().setFromPoints([pts[i], pts[i + 1]]);
+      group.add(new THREE.Line(geo, mat));
+    }
+  }
+  cubeGroup.add(group);
+}
+addGridLines();
+
+// Target orientations for each face to face the camera
+// Maps FAQ index → Euler rotation
+const faceTargets = [
+  { x: 0, y: -Math.PI / 2, z: 0 }, // +X  face 0
+  { x: 0, y: Math.PI / 2, z: 0 },  // -X  face 1
+  { x: Math.PI / 2, y: 0, z: 0 },  // +Y  face 2
+  { x: -Math.PI / 2, y: 0, z: 0 }, // -Y  face 3
+  { x: 0, y: 0, z: 0 },            // +Z  face 4
+  { x: 0, y: Math.PI, z: 0 }       // -Z  face 5
+];
+
+// Remap materials so +Z (front) is FAQ 0 initially
+// Default box materials: [+X,-X,+Y,-Y,+Z,-Z] = [0,1,2,3,4,5]
+// We want front (+Z) to show FAQ 0 → swap: put faq0 on +Z (index 4)
+const orderedMats = [
+  materials[1], // +X → FAQ 1
+  materials[2], // -X → FAQ 2
+  materials[3], // +Y → FAQ 3
+  materials[4], // -Y → FAQ 4
+  materials[0], // +Z → FAQ 0 (front)
+  materials[5]  // -Z → FAQ 5
+];
+cube.material = orderedMats;
+
+// Camera-facing FAQ index for each material slot after remap:
+// slot FAQ: +X=1, -X=2, +Y=3, -Y=4, +Z=0, -Z=5
+const slotToFaq = [1, 2, 3, 4, 0, 5];
+
+// Manual only: drag, click cube, or left pills — no auto flip
+let rotX = 0;
+let rotY = 0;
+let targetRotX = rotX;
+let targetRotY = rotY;
+let velocityX = 0;
+let velocityY = 0;
+let isDragging = false;
+let lastX = 0;
+let lastY = 0;
+let activeFace = 0;
+let snapping = false;
+let didDrag = false;
+
+function applyCubeFraming() {
+  const mobile = window.innerWidth <= 720;
+  const tablet = window.innerWidth <= 1024 && !mobile;
+  // Cube size stays at 1.0 — only the CSS frame grows for edge/float room
+  if (mobile) {
+    camera.position.set(0, 0, 6.4);
+    camera.fov = 32;
+    cubeGroup.scale.setScalar(1.0);
+  } else if (tablet) {
+    camera.position.set(0, 0, 6.4);
+    camera.fov = 32;
+    cubeGroup.scale.setScalar(1.0);
+  } else {
+    camera.position.set(0, 0, 6.4);
+    camera.fov = 32;
+    cubeGroup.scale.setScalar(1.0);
+  }
+  camera.updateProjectionMatrix();
+}
+
+function resize() {
+  const w = stage.clientWidth;
+  const h = stage.clientHeight;
+  renderer.setSize(w, h, true);
+  camera.aspect = w / h || 1;
+  applyCubeFraming();
+}
+resize();
+window.addEventListener('resize', resize);
+
+// Fully face-on targets. Capture (+Y) / Manage (-Y) need ±π/2 pitch.
+const FACE_SNAP = {
+  0: { x: 0, y: 0 },                 // +Z foundation
+  1: { x: 0, y: -Math.PI / 2 },      // +X growth
+  2: { x: 0, y: Math.PI / 2 },       // -X dominance
+  3: { x: Math.PI / 2, y: 0 },       // +Y capture
+  4: { x: -Math.PI / 2, y: 0 },      // -Y manage
+  5: { x: 0, y: Math.PI }            // -Z convert
+};
+
+function snapToFace(faqIndex) {
+  activeFace = faqIndex;
+  setActiveFace(faqIndex);
+  snapping = true;
+  const t = FACE_SNAP[faqIndex] || FACE_SNAP[0];
+  targetRotX = t.x;
+  targetRotY = t.y;
+  velocityX = 0;
+  velocityY = 0;
+  // Clear snapping flag once settled (no auto-advance)
+  clearTimeout(snapToFace._t);
+  snapToFace._t = setTimeout(() => { snapping = false; }, 700);
+}
+
+// Open face-on on Foundation and stay there until user acts
+snapToFace(0);
+
+// Pointer drag
+canvas.addEventListener('pointerdown', (e) => {
+  isDragging = true;
+  didDrag = false;
+  snapping = false;
+  lastX = e.clientX;
+  lastY = e.clientY;
+  canvas.setPointerCapture(e.pointerId);
+});
+canvas.addEventListener('pointermove', (e) => {
+  if (!isDragging) return;
+  const dx = e.clientX - lastX;
+  const dy = e.clientY - lastY;
+  if (Math.abs(dx) + Math.abs(dy) > 3) didDrag = true;
+  lastX = e.clientX;
+  lastY = e.clientY;
+  velocityY = dx * 0.005;
+  velocityX = dy * 0.005;
+  rotY += velocityY;
+  rotX += velocityX;
+  targetRotX = rotX;
+  targetRotY = rotY;
+});
+function endDrag(e) {
+  if (!isDragging) return;
+  isDragging = false;
+  try { canvas.releasePointerCapture(e.pointerId); } catch (_) {}
+  // After drag, snap to nearest face so type is square-on
+  if (didDrag) {
+    setTimeout(() => {
+      if (!isDragging) {
+        updateNearestFace();
+        snapToFace(activeFace);
+      }
+    }, 80);
+  }
+}
+canvas.addEventListener('pointerup', endDrag);
+canvas.addEventListener('pointercancel', endDrag);
+
+// Wheel = manual rotate (same as drag), then re-snap
+stage.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  snapping = false;
+  targetRotY += e.deltaY * 0.0025;
+  targetRotX += e.deltaX * 0.0025;
+  velocityY = e.deltaY * 0.0008;
+  clearTimeout(stage._wheelT);
+  stage._wheelT = setTimeout(() => {
+    updateNearestFace();
+    snapToFace(activeFace);
+  }, 400);
+  updateNearestFace();
+}, { passive: false });
+
+// Click cube to cycle faces (not after a drag)
+canvas.addEventListener('click', (e) => {
+  if (didDrag) return;
+  const next = (activeFace + 1) % G2_FACES.length;
+  snapToFace(next);
+});
+
+function updateNearestFace() {
+  // Normalize and pick closest FACE_SNAP target (includes Capture/Manage pitch)
+  let y = ((targetRotY % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2);
+  let x = targetRotX;
+  // wrap x into [-pi, pi]
+  while (x > Math.PI) x -= Math.PI * 2;
+  while (x < -Math.PI) x += Math.PI * 2;
+
+  let best = 0;
+  let bestD = Infinity;
+  for (const [iStr, t] of Object.entries(FACE_SNAP)) {
+    const i = Number(iStr);
+    let dy = Math.abs(y - (((t.y % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2)));
+    dy = Math.min(dy, Math.PI * 2 - dy);
+    const dx = Math.abs(x - t.x);
+    const d = dy + dx * 1.4; // pitch weight — Capture/Manage need pitch match
+    if (d < bestD) { bestD = d; best = i; }
+  }
+  activeFace = best;
+  setActiveFace(activeFace);
+}
+
+function animate() {
+  requestAnimationFrame(animate);
+
+  if (isDragging) {
+    // rotations applied in pointermove
+  } else if (snapping) {
+    // snappier ease onto face-on target
+    rotX += (targetRotX - rotX) * 0.12;
+    rotY += (targetRotY - rotY) * 0.12;
+  } else {
+    rotX += velocityX;
+    rotY += velocityY;
+    velocityX *= 0.9;
+    velocityY *= 0.9;
+    rotX += (targetRotX - rotX) * 0.08;
+    rotY += (targetRotY - rotY) * 0.08;
+    targetRotX = rotX;
+    targetRotY = rotY;
+  }
+
+  // Allow full ±90° so Capture (+Y) and Manage (-Y) can face the camera
+  rotX = Math.max(-Math.PI / 2 - 0.05, Math.min(Math.PI / 2 + 0.05, rotX));
+
+  cubeGroup.rotation.x = rotX;
+  cubeGroup.rotation.y = rotY;
+
+  // Subtle float — amplitude kept small so padded frame can hold it
+  cubeGroup.position.y = Math.sin(performance.now() * 0.001) * 0.02;
+
+  edgeMat.opacity = 0.32 + Math.sin(performance.now() * 0.002) * 0.1;
+
+  renderer.render(scene, camera);
+}
+animate();
+
+// Page scroll no longer yaws the cube (that made Capture/Manage unreadable).
+// Pills / dots / click still drive face changes.
+</script>
+
+<script>
+/* ─── SCROLL-TILT REVEAL (apex-style) ───
+   Panel starts reclined (rotateX), straightens to upright as it scrolls
+   into view. A video inside it autoplays once the panel has settled.
+   Drives both the system panel (with video) and the FAQ panel (no video). */
+(function () {
+  // Carlos 7/30: shorter travel + settle sooner so mobile doesn't feel like the page ends
+  var MAX_TILT = 48;            // degrees "laid down" (was 62)
+  var SETTLE_AT = 0.70;         // fully upright when panel center is at 70% vh (was 50%)
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function initTilt(wrap, frame, video, saber) {
+    if (!wrap || !frame) return;
+
+    var played = false;
+    var ignited = false;
+    var ticking = false;
+
+    function play() {
+      if (!video || played) return;
+      played = true;
+      var p = video.play();
+      if (p && typeof p.catch === 'function') p.catch(function () {});
+    }
+
+    function ignite() {
+      if (ignited || !saber) return;
+      ignited = true;
+      saber.classList.add('lit');
+    }
+
+    if (reduce) {
+      frame.style.transform = 'none';
+      if (saber) saber.style.setProperty('--p', '1');
+      var io = new IntersectionObserver(function (ents) {
+        ents.forEach(function (e) { if (e.isIntersecting) { play(); ignite(); io.disconnect(); } });
+      }, { threshold: 0.4 });
+      io.observe(wrap);
+      return;
+    }
+
+    function update() {
+      ticking = false;
+      var rect = wrap.getBoundingClientRect();
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      // Progress off the panel's CENTER. Settles earlier (SETTLE_AT) so the
+      // upright card appears before the user thinks the page has ended.
+      var center = rect.top + rect.height / 2;
+      var frac = center / vh;                  // 1.0 = center at bottom edge
+      var span = 1 - SETTLE_AT;                // distance from bottom edge to settle
+      var p = span > 0 ? (1 - frac) / span : 1;
+      p = p < 0 ? 0 : p > 1 ? 1 : p;
+      var e = 1 - Math.pow(1 - p, 3);          // easeOutCubic for a weighted settle
+      var tilt = (1 - e) * MAX_TILT;
+      var scale = 0.92 + e * 0.08;            // subtle rise toward the viewer
+      frame.style.transform = 'rotateX(' + tilt.toFixed(2) + 'deg) scale(' + scale.toFixed(3) + ')';
+      if (saber) saber.style.setProperty('--p', p.toFixed(4));
+      if (p >= 0.999) { play(); ignite(); }
+    }
+
+    function onScroll() {
+      if (!ticking) { ticking = true; requestAnimationFrame(update); }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+    update();
+  }
+
+  initTilt(
+    document.querySelector('.system-tilt-wrap'),
+    document.getElementById('systemFrame'),
+    document.getElementById('systemVideo'),
+    document.getElementById('systemSaber')
+  );
+
+  initTilt(
+    document.querySelector('.faq-tilt-wrap'),
+    document.getElementById('faqFrame'),
+    null,
+    document.getElementById('faqSaber')
+  );
+})();
+</script>
+
+<script>
+/**
+ * Allie, AAL Xolutions web receptionist.
+ * Mirrors the phone assistant (Final V1): greets, answers, qualifies Foundation fit,
+ * routes to Foundation / Growth / Dominance (custom scope escalates), captures leads,
+ * offers click-to-call.
+ */
+(function () {
+  'use strict';
+
+  /* ═══════════════════════════════════════════════════════════
+     CONFIG (voice is live; appointment endpoint still pending)
+     ═══════════════════════════════════════════════════════════ */
+  const AAL_CHAT_CONFIG = {
+    agentName: 'Allie',
+    brand: 'AAL Xolutions',
+    // Voice agent (Telnyx / future)
+    voice: {
+      enabled: true,                  // LIVE
+      phoneE164: '+17022682131',      // Allie line (Telnyx AI Assistant)
+      displayPhone: '(702) 268-2131',
+      telnyxAssistantId: 'assistant-bdf9134d-9ed3-41d5-9a08-1561356556c0',
+      // Deliberately null. This fires when someone asks for a person BEFORE
+      // filling the form, so the packet has no name or email and would only
+      // create unactionable rows. The real lead is captured on form submit.
+      handoffWebhook: null,
+      dialOnReady: true               // auto-offer click-to-call when enabled
+    },
+    // Appointment / CRM intake → aal_leads, notify, GHL forward
+    appointments: {
+      enabled: true,
+      endpoint: 'https://jtifhcvbgxqwlywugvjv.supabase.co/functions/v1/aal-lead-intake',
+      mailtoFallback: null,           // domain not confirmed yet
+      storageKey: 'aal_leads_v1',
+      slots: [
+        'Tomorrow morning',
+        'Tomorrow afternoon',
+        'This week',
+        'Next week',
+        'Flexible, contact me'
+      ]
+    },
+    // Analytics hook (no-op until wired)
+    onEvent: function (name, payload) {
+      try {
+        window.dispatchEvent(new CustomEvent('aal:chat', { detail: { name, payload } }));
+        if (window.dataLayer) window.dataLayer.push({ event: 'aal_chat_' + name, ...payload });
+      } catch (_) {}
+    }
+  };
+
+  /* ═══════════════════════════════════════════════════════════
+     KNOWLEDGE BASE (AAL Xolutions products, pricing, guardrails)
+     ═══════════════════════════════════════════════════════════ */
+  const KB = [
+    {
+      id: 'about',
+      tags: ['what is aal', 'who are you', 'about', 'aal xolutions', 'company', 'what do you do', 'tell me about'],
+      answer: `<p><strong>AAL Xolutions</strong> is visibility and lead-generation infrastructure. We help your business get found, build trust, capture every lead, and grow. We start with the <strong>Foundation</strong>, and when you’re ready to scale we move into <strong>Growth</strong> or <strong>Dominance</strong>.</p>
+<p>Want me to check your Foundation fit?</p>`
+    },
+    {
+      id: 'included',
+      tags: ['included', 'what do i get', 'features', 'foundation', 'g2 foundation', 'what is the foundation', 'scope', 'comes with', 'what does it include'],
+      answer: `<p>The <strong>Foundation</strong> sets up the core system your business runs on:</p>
+<ul>
+  <li>Google Business Profile, Instagram, and TikTok optimized</li>
+  <li>Google Review AI to bring in more reviews</li>
+  <li>A domain, a hosted lead page, and a lead form</li>
+  <li>A CRM with routing and notifications</li>
+  <li>One social lead automation (a DM, comment, or keyword into your CRM)</li>
+</ul>
+<p>Want me to check whether the Foundation covers what you need?</p>`
+    },
+    {
+      id: 'pricing',
+      tags: ['price', 'pricing', 'cost', 'how much', 'fee', 'fees', 'monthly cost', 'investment', 'packages'],
+      answer: `<p>The <strong>Foundation</strong> is <strong>$997</strong> setup + <strong>$124.99/month</strong> — <strong>$1,121.99 due today</strong> to start, then <strong>$124.99/month</strong> ongoing for the platform (CRM, hosting, and workflows).</p>
+<p>If your needs go beyond the standard Foundation, we scope that as a custom build and price it on a short consultation. Growth and Dominance are set up through a strategy meeting rather than a fixed price. Want me to check your fit?</p>`
+    },
+    {
+      id: 'monthlyfee',
+      tags: ['why monthly', 'monthly fee', 'recurring', 'subscription', 'why pay every month', 'why a fee'],
+      answer: `<p>The monthly fee covers your CRM, hosting, platform access, workflow hosting, and keeping the system running after it is installed.</p>`
+    },
+    {
+      id: 'whyfoundation',
+      tags: ['why do i need', 'why foundation', 'why the foundation', 'do i need this', 'what is the point', 'why bother'],
+      answer: `<p>The Foundation connects your online visibility to lead capture. Instead of leads scattered across disconnected platforms, it organizes how customers find you and how your business responds to them, all in one place.</p>`
+    },
+    {
+      id: 'custom',
+      tags: ['custom', 'customize', 'custom build', 'extra', 'more features', 'automation', 'integration', 'missed call', 'ai phone', 'multiple locations', 'sms', 'nurture'],
+      answer: `<p>Absolutely. If you need more than the standard Foundation, like missed-call text-back, AI phone answering, ongoing SMS or email follow-up, or multiple locations and users, we scope that as a custom build and give you accurate pricing on a short consultation. Want me to book that?</p>`
+    },
+    {
+      id: 'growth',
+      tags: ['growth', 'scale', 'ongoing marketing', 'seo', 'content', 'ads management', 'more visibility', 'more customers'],
+      answer: `<p><strong>Growth</strong> is for businesses ready to actively get in front of more of the right people and turn that visibility into more opportunities. It’s tailored to your business, so we set it up through a strategy meeting rather than a fixed price. Want me to get one scheduled?</p>`
+    },
+    {
+      id: 'dominance',
+      tags: ['dominance', 'multiple channels', 'multi channel', 'market expansion', 'aggressive growth', 'scale up', 'paid and organic', 'bigger strategy'],
+      answer: `<p><strong>Dominance</strong> is a bigger growth strategy that uses multiple channels together to increase visibility and customer acquisition, for aggressive growth, larger goals, or expanding into new markets. Like Growth, we map it out in a strategy meeting rather than a fixed price. Want me to get one scheduled?</p>`
+    },
+    {
+      id: 'voice',
+      tags: ['voice', 'call', 'phone', 'agent', 'speak', 'talk', 'human', 'representative', 'person', 'someone'],
+      answer: `<p>You can talk to me by phone any time at <strong>(702) 268-2131</strong>. If you would rather have a team member reach out, leave your details and I will pass them along.</p>`
+    },
+    {
+      id: 'getstarted',
+      tags: ['get started', 'start', 'sign up', 'onboard', 'next step', 'ready', 'how do we begin', 'begin'],
+      answer: `<p>Easiest way is to check your Foundation fit, it takes about a minute. I will ask a few quick questions and point you to the right next step. Want to do that now?</p>`
+    }
+  ];
+
+  const QUICK_CHIPS = [
+    { label: 'Check my Foundation fit', msg: 'Check my Foundation fit' },
+    { label: "What's included", msg: "What's included in the Foundation?" },
+    { label: 'Pricing', msg: 'How much does it cost?' },
+    { label: 'Talk to a person', msg: 'I want to talk to a person' }
+  ];
+
+  /* ═══════════════════════════════════════════════════════════
+     STATE
+     ═══════════════════════════════════════════════════════════ */
+  const state = {
+    open: false,
+    booking: false,
+    bookingStep: null, // null | 'form' | 'done'
+    qualify: null,     // null | { i, answers }
+    lead: {
+      name: '',
+      email: '',
+      phone: '',
+      company: '',
+      slot: '',
+      interest: '',
+      source: 'aal-chat',
+      transcript: []
+    },
+    voiceQueued: false,
+    greetingShown: false
+  };
+
+  const root = document.getElementById('aalChat');
+  const panel = document.getElementById('aalChatPanel');
+  const fab = document.getElementById('aalChatFab');
+  const closeBtn = document.getElementById('aalChatClose');
+  const messagesEl = document.getElementById('aalChatMessages');
+  const quickEl = document.getElementById('aalChatQuick');
+  const input = document.getElementById('aalChatInput');
+  const sendBtn = document.getElementById('aalChatSend');
+  const badge = document.getElementById('aalChatBadge');
+  const voiceBtn = document.getElementById('aalVoiceBtn');
+  const voiceBanner = document.getElementById('aalVoiceBanner');
+
+  /* ═══════════════════════════════════════════════════════════
+     UI HELPERS
+     ═══════════════════════════════════════════════════════════ */
+  function scrollToBottom() {
+    messagesEl.scrollTop = messagesEl.scrollHeight;
+  }
+
+  function nowLabel() {
+    return new Date().toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
+  }
+
+  function addMsg(role, html, opts = {}) {
+    const wrap = document.createElement('div');
+    wrap.className = 'aal-msg ' + role;
+    wrap.innerHTML =
+      '<div class="aal-msg-bubble">' + html + '</div>' +
+      (opts.hideMeta ? '' : '<div class="aal-msg-meta">' + (role === 'bot' ? AAL_CHAT_CONFIG.agentName : 'You') + ' · ' + nowLabel() + '</div>');
+    messagesEl.appendChild(wrap);
+    scrollToBottom();
+
+    const plain = wrap.innerText.replace(/\s+/g, ' ').trim().slice(0, 500);
+    state.lead.transcript.push({ role, text: plain, at: new Date().toISOString() });
+    return wrap;
+  }
+
+  function showTyping() {
+    const el = document.createElement('div');
+    el.className = 'aal-msg bot';
+    el.id = 'aalTyping';
+    el.innerHTML = '<div class="aal-typing" aria-label="Typing"><span></span><span></span><span></span></div>';
+    messagesEl.appendChild(el);
+    scrollToBottom();
+  }
+
+  function hideTyping() {
+    document.getElementById('aalTyping')?.remove();
+  }
+
+  function botReply(html, delay) {
+    const ms = delay != null ? delay : 450 + Math.random() * 400;
+    showTyping();
+    return new Promise(resolve => {
+      setTimeout(() => {
+        hideTyping();
+        addMsg('bot', html);
+        resolve();
+      }, ms);
+    });
+  }
+
+  function setOpen(open) {
+    state.open = open;
+    root.classList.toggle('open', open);
+    fab.setAttribute('aria-expanded', open ? 'true' : 'false');
+    if (open) {
+      badge.style.display = 'none';
+      if (!state.greetingShown) {
+        state.greetingShown = true;
+        greet();
+      }
+      setTimeout(() => input.focus(), 280);
+      AAL_CHAT_CONFIG.onEvent('open', {});
+    } else {
+      AAL_CHAT_CONFIG.onEvent('close', {});
+    }
+  }
+
+  function renderChips(chips) {
+    quickEl.innerHTML = '';
+    (chips || QUICK_CHIPS).forEach(c => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'aal-chip';
+      b.textContent = c.label;
+      b.addEventListener('click', () => {
+        input.value = c.msg;
+        handleSend();
+      });
+      quickEl.appendChild(b);
+    });
+  }
+
+  async function greet() {
+    await botReply(
+      `<p>Hi, I’m <strong>Allie</strong>, the assistant for <strong>AAL Xolutions</strong>. I help you get found, build trust, and capture more leads.</p>
+       <p>I can check your <strong>Foundation fit</strong>, answer questions about what’s included or pricing, or connect you with the team. What brings you in today?</p>`,
+      300
+    );
+    renderChips(QUICK_CHIPS);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     INTENT + RETRIEVAL
+     ═══════════════════════════════════════════════════════════ */
+  function normalize(s) {
+    return (s || '').toLowerCase().replace(/[^a-z0-9\s+#@.-]/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+
+  function scoreEntry(entry, q) {
+    let score = 0;
+    const nq = normalize(q);
+    if (!nq) return 0;
+    entry.tags.forEach(tag => {
+      if (nq.includes(tag)) score += tag.length > 6 ? 4 : 2;
+      tag.split(' ').forEach(w => {
+        if (w.length > 3 && nq.includes(w)) score += 1;
+      });
+    });
+    if (entry.title && nq.includes(normalize(entry.title))) score += 3;
+    // word overlap
+    nq.split(' ').forEach(w => {
+      if (w.length < 4) return;
+      if (entry.answer.toLowerCase().includes(w)) score += 0.5;
+    });
+    return score;
+  }
+
+  function matchKnowledge(q) {
+    let best = null;
+    let bestScore = 0;
+    KB.forEach(entry => {
+      const s = scoreEntry(entry, q);
+      if (s > bestScore) { bestScore = s; best = entry; }
+    });
+    return bestScore >= 2 ? best : null;
+  }
+
+  function detectIntent(q) {
+    const n = normalize(q);
+    if (/^(hi|hello|hey|yo|sup|good (morning|afternoon|evening))\b/.test(n) || n === 'hi' || n === 'hello') return 'greeting';
+    if (/\b(foundation fit|check my fit|check my foundation|qualify|am i a fit|right fit|good fit|get started|getting started|sign up|onboard)\b/.test(n)) return 'qualify';
+    if (/\b(book|schedule|appointment|consultation|strategy session|call me|set up a time|meeting|available)\b/.test(n)) return 'book';
+    if (/\b(voice|phone|call (me|us|you|an agent)|speak|talk to (a |an )?(human|agent|person|rep|someone)|representative|real person|human|sales)\b/.test(n)) return 'voice';
+    if (/\b(think about it|need to think|maybe later|not right now)\b/.test(n)) return 'think';
+    if (/\b(thank|thanks|thx|appreciate)\b/.test(n)) return 'thanks';
+    return 'knowledge';
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     FOUNDATION-FIT QUALIFIER (mirrors the phone flow)
+     ═══════════════════════════════════════════════════════════ */
+  const QUALIFY_STEPS = [
+    { key: 'type', q: `<p>Happy to help. First, what kind of business is it?</p>`, chips: [] },
+    { key: 'visibility', q: `<p>Got it. How are customers finding you right now?</p>`, chips: [
+        { label: 'Google', msg: 'Google' },
+        { label: 'Instagram / TikTok', msg: 'Instagram and TikTok' },
+        { label: 'Referrals', msg: 'Referrals' },
+        { label: 'Not sure', msg: 'Not sure' }
+      ] },
+    { key: 'challenge', q: `<p>What’s the biggest thing you’d want to fix?</p>`, chips: [
+        { label: 'Not enough leads', msg: 'Not enough leads' },
+        { label: 'Leads slip away', msg: 'Leads slipping through' },
+        { label: 'Low visibility', msg: 'Low visibility' },
+        { label: 'Too much manual work', msg: 'Too much manual work' }
+      ] },
+    { key: 'complexity', q: `<p>Last one. Do you need anything beyond the basics, like missed-call text-back, AI phone answering, ongoing SMS or email follow-up, or multiple locations and users?</p>`, chips: [
+        { label: 'Yes, some of that', msg: 'Yes I need some of that' },
+        { label: 'No, just the basics', msg: 'No just the basics' },
+        { label: 'Not sure yet', msg: 'Not sure yet' }
+      ] }
+  ];
+
+  function startQualify() {
+    state.qualify = { i: 0, answers: {} };
+    askQualifyStep();
+  }
+
+  async function askQualifyStep() {
+    const step = QUALIFY_STEPS[state.qualify.i];
+    await botReply(step.q, 300);
+    renderChips(step.chips && step.chips.length ? step.chips : []);
+  }
+
+  async function advanceQualify(text) {
+    const step = QUALIFY_STEPS[state.qualify.i];
+    state.qualify.answers[step.key] = text;
+    state.qualify.i++;
+    if (state.qualify.i < QUALIFY_STEPS.length) {
+      await askQualifyStep();
+    } else {
+      await recommendFromQualify();
+    }
+  }
+
+  async function recommendFromQualify() {
+    const a = state.qualify.answers;
+    const complex = normalize(a.complexity || '');
+    const custom = /(yes|some|missed|ai phone|sms|email|multiple|location|user|automation|integration)/.test(complex);
+    state.lead.interest = 'Business: ' + (a.type || '') + ' · Finds via: ' + (a.visibility || '') + ' · Wants to fix: ' + (a.challenge || '');
+    // Single source of truth for the routing decision — the backend must not
+    // re-derive this from the interest string.
+    state.lead.tier = custom ? 'custom' : 'foundation';
+    state.lead.qualifierAnswers = a;
+    state.qualify = null;
+
+    if (custom) {
+      await botReply(
+        `<p>Thanks. Based on that, you’d want a <strong>custom build</strong>, since you need more than the standard Foundation.</p>
+         <p>We scope that on a short consultation so the pricing is accurate. Want me to get that booked?</p>`,
+        500
+      );
+      renderChips([
+        { label: 'Book a consultation', msg: 'Book a consultation' },
+        { label: "What's included", msg: "What's included in the Foundation?" },
+        { label: 'Talk to a person', msg: 'I want to talk to a person' }
+      ]);
+    } else {
+      await botReply(
+        `<p>Thanks. Based on that, the <strong>Foundation</strong> looks like a great fit.</p>
+         <p>It’s <strong>$997</strong> setup + <strong>$124.99/month</strong> — <strong>$1,121.99 due today</strong> to start, then <strong>$124.99/month</strong> ongoing. Want me to set up a quick call to get you started?</p>`,
+        500
+      );
+      renderChips([
+        { label: 'Book a call', msg: 'Book a call' },
+        { label: "What's included", msg: "What's included in the Foundation?" },
+        { label: 'Talk to a person', msg: 'I want to talk to a person' }
+      ]);
+    }
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     BOOKING FLOW
+     ═══════════════════════════════════════════════════════════ */
+  function startBooking(prefillInterest) {
+    state.booking = true;
+    state.bookingStep = 'form';
+    if (prefillInterest && !state.lead.interest) state.lead.interest = prefillInterest;
+
+    const slotOpts = AAL_CHAT_CONFIG.appointments.slots
+      .map(s => '<option value="' + escapeAttr(s) + '">' + escapeHtml(s) + '</option>')
+      .join('');
+
+    const html =
+      `<p>Let’s get you on the calendar. Share your details and the team will confirm by email.</p>
+       <div class="aal-lead-card" id="aalLeadForm">
+         <label>Full name *</label>
+         <input type="text" id="aalLeadName" autocomplete="name" placeholder="Jordan Lee" required>
+         <label>Email *</label>
+         <input type="email" id="aalLeadEmail" autocomplete="email" placeholder="you@business.com" required>
+         <label>Phone</label>
+         <input type="tel" id="aalLeadPhone" autocomplete="tel" placeholder="(702) 555-0100">
+         <label>Business name</label>
+         <input type="text" id="aalLeadCompany" autocomplete="organization" placeholder="Your business">
+         <label>Preferred time *</label>
+         <select id="aalLeadSlot">${slotOpts}</select>
+         <label>What would you like help with?</label>
+         <input type="text" id="aalLeadInterest" placeholder="Foundation, Growth, or a question" value="${escapeAttr(state.lead.interest || '')}">
+         <div class="aal-lead-actions">
+           <button type="button" class="aal-lead-cancel" id="aalLeadCancel">Cancel</button>
+           <button type="button" class="aal-lead-submit" id="aalLeadSubmit">Request my call</button>
+         </div>
+       </div>`;
+
+    botReply(html, 350).then(() => {
+      document.getElementById('aalLeadCancel')?.addEventListener('click', () => {
+        state.booking = false;
+        state.bookingStep = null;
+        botReply('<p>No problem. I’m here whenever you’re ready.</p>');
+        renderChips(QUICK_CHIPS);
+      });
+      document.getElementById('aalLeadSubmit')?.addEventListener('click', submitBooking);
+      renderChips([
+        { label: 'Cancel', msg: 'cancel' }
+      ]);
+    });
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+  function escapeAttr(s) {
+    return escapeHtml(s).replace(/'/g, '&#39;');
+  }
+
+  async function submitBooking() {
+    const name = document.getElementById('aalLeadName')?.value.trim() || '';
+    const email = document.getElementById('aalLeadEmail')?.value.trim() || '';
+    const phone = document.getElementById('aalLeadPhone')?.value.trim() || '';
+    const company = document.getElementById('aalLeadCompany')?.value.trim() || '';
+    const slot = document.getElementById('aalLeadSlot')?.value || '';
+    const interest = document.getElementById('aalLeadInterest')?.value.trim() || state.lead.interest || '';
+
+    if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      await botReply('<p>I just need a <strong>name</strong> and a valid <strong>email</strong> to book. Mind adding those?</p>', 200);
+      return;
+    }
+
+    const payload = {
+      ...state.lead,
+      action: 'web_lead',
+      name, email, phone, company, slot, interest,
+      tier: state.lead.tier || 'unknown',
+      qualifier_answers: state.lead.qualifierAnswers || null,
+      voiceReady: AAL_CHAT_CONFIG.voice.enabled,
+      createdAt: new Date().toISOString(),
+      page: location.href,
+      userAgent: navigator.userAgent
+    };
+    state.lead = payload;
+    state.booking = false;
+    state.bookingStep = 'done';
+
+    try {
+      const key = AAL_CHAT_CONFIG.appointments.storageKey;
+      const prev = JSON.parse(localStorage.getItem(key) || '[]');
+      prev.push(payload);
+      localStorage.setItem(key, JSON.stringify(prev));
+    } catch (_) {}
+
+    // Did the lead actually reach us? Never claim it did when it did not.
+    let saved = null;
+    if (AAL_CHAT_CONFIG.appointments.endpoint) {
+      try {
+        const res = await fetch(AAL_CHAT_CONFIG.appointments.endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        saved = res.ok;
+      } catch (_) {
+        saved = false;
+      }
+    }
+
+    queueVoiceHandoff(payload);
+    AAL_CHAT_CONFIG.onEvent('appointment_requested', { email: payload.email, slot: payload.slot });
+
+    const form = document.getElementById('aalLeadForm');
+    if (form) form.querySelectorAll('input, select, button').forEach(el => { el.disabled = true; });
+
+    const v = AAL_CHAT_CONFIG.voice;
+    const voiceNote = v.enabled && v.phoneE164
+      ? `<p>Prefer to talk now? You can call Allie at <a href="tel:${v.phoneE164}">${escapeHtml(v.displayPhone || v.phoneE164)}</a>.</p>`
+      : '';
+
+    if (saved === false) {
+      // The POST failed. Do not tell them they are booked.
+      const callLine = v.enabled && v.phoneE164
+        ? `<p>The fastest way to reach us right now is to call Allie at <a href="tel:${v.phoneE164}">${escapeHtml(v.displayPhone || v.phoneE164)}</a>.</p>`
+        : '';
+      await botReply(
+        `<p>Sorry, <strong>${escapeHtml(name)}</strong>, I could not get that through just now.</p>
+         ${callLine}
+         <p style="font-size:0.82rem;color:var(--muted)">Your details are saved in this window, so you can try again in a moment.</p>`,
+        500
+      );
+      if (form) form.querySelectorAll('input, select, button').forEach(el => { el.disabled = false; });
+      renderChips([
+        { label: 'Try again', msg: 'Book a call' },
+        { label: "What's included", msg: "What's included in the Foundation?" }
+      ]);
+      return;
+    }
+
+    await botReply(
+      `<p>You’re set, <strong>${escapeHtml(name)}</strong>.</p>
+       <p>The team will confirm <strong>${escapeHtml(slot)}</strong> at <strong>${escapeHtml(email)}</strong>${company ? ' for ' + escapeHtml(company) : ''}.</p>
+       ${voiceNote}`,
+      500
+    );
+
+    renderChips([
+      { label: "What's included", msg: "What's included in the Foundation?" },
+      { label: 'Pricing', msg: 'How much does it cost?' }
+    ]);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     VOICE AGENT PREP
+     ═══════════════════════════════════════════════════════════ */
+  function syncVoiceUI() {
+    const v = AAL_CHAT_CONFIG.voice;
+    if (v.enabled && v.phoneE164) {
+      voiceBtn.disabled = false;
+      voiceBtn.classList.add('voice-ready');
+      voiceBtn.title = 'Call Allie ' + (v.displayPhone || v.phoneE164);
+      voiceBanner.classList.remove('show');
+    } else {
+      voiceBtn.disabled = false;
+      voiceBtn.classList.remove('voice-ready');
+      voiceBtn.title = 'Talk to the team';
+    }
+  }
+
+  function queueVoiceHandoff(payload) {
+    const packet = {
+      type: 'VOICE_HANDOFF_REQUEST',
+      status: AAL_CHAT_CONFIG.voice.enabled ? 'ready_to_dial' : 'queued_awaiting_number',
+      phone: AAL_CHAT_CONFIG.voice.phoneE164,
+      telnyxAssistantId: AAL_CHAT_CONFIG.voice.telnyxAssistantId,
+      lead: {
+        name: payload.name,
+        email: payload.email,
+        phone: payload.phone,
+        company: payload.company,
+        interest: payload.interest,
+        slot: payload.slot
+      },
+      contextSummary: buildContextSummary(payload),
+      transcript: payload.transcript || state.lead.transcript,
+      createdAt: new Date().toISOString()
+    };
+
+    try {
+      const key = 'aal_voice_queue_v1';
+      const q = JSON.parse(localStorage.getItem(key) || '[]');
+      q.push(packet);
+      localStorage.setItem(key, JSON.stringify(q));
+    } catch (_) {}
+
+    if (AAL_CHAT_CONFIG.voice.handoffWebhook) {
+      fetch(AAL_CHAT_CONFIG.voice.handoffWebhook, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(packet)
+      }).catch(() => {});
+    }
+
+    // Global hook for future Telnyx / edge function wiring
+    window.__AAL_LAST_VOICE_HANDOFF__ = packet;
+    AAL_CHAT_CONFIG.onEvent('voice_handoff_queued', { status: packet.status });
+    return packet;
+  }
+
+  function buildContextSummary(payload) {
+    const bits = [
+      'AAL web chat handoff',
+      payload.name && ('Name: ' + payload.name),
+      payload.company && ('Company: ' + payload.company),
+      payload.interest && ('Interest: ' + payload.interest),
+      payload.slot && ('Preferred: ' + payload.slot)
+    ].filter(Boolean);
+    return bits.join(' · ');
+  }
+
+  async function handleVoiceRequest() {
+    state.voiceQueued = true;
+    const v = AAL_CHAT_CONFIG.voice;
+
+    if (v.enabled && v.phoneE164) {
+      voiceBanner.classList.remove('show');
+      await botReply(
+        `<p>You can talk to Allie by phone any time.</p>
+         <p><a class="btn btn-primary" style="display:inline-flex;margin-top:8px;padding:10px 18px;font-size:0.8rem" href="tel:${v.phoneE164}">Call ${escapeHtml(v.displayPhone || v.phoneE164)}</a></p>
+         <p style="margin-top:10px;font-size:0.82rem;color:var(--muted)">Prefer we reach out? Leave your details and the team will follow up.</p>`,
+        300
+      );
+      queueVoiceHandoff(state.lead);
+      renderChips([
+        { label: 'Book a call', msg: 'Book a call' },
+        { label: "What's included", msg: "What's included in the Foundation?" }
+      ]);
+      return;
+    }
+
+    voiceBanner.classList.add('show');
+    await botReply(
+      `<p>Leave your details and a team member will reach out. What’s the best number and time to reach you?</p>`,
+      400
+    );
+    queueVoiceHandoff(state.lead);
+    renderChips([
+      { label: 'Book a call', msg: 'Book a call' },
+      { label: 'Keep chatting', msg: "What's included in the Foundation?" }
+    ]);
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     MAIN HANDLER
+     ═══════════════════════════════════════════════════════════ */
+  async function handleSend() {
+    const text = (input.value || '').trim();
+    if (!text) return;
+
+    // Qualifier active: treat input as the answer to the current step
+    if (state.qualify) {
+      if (/cancel|never ?mind|stop|exit/.test(normalize(text))) {
+        addMsg('user', escapeHtml(text));
+        input.value = ''; autosize();
+        state.qualify = null;
+        await botReply('<p>No problem. Ask me anything, or tell me when you’d like to pick it back up.</p>');
+        renderChips(QUICK_CHIPS);
+        return;
+      }
+      addMsg('user', escapeHtml(text));
+      input.value = ''; autosize();
+      await advanceQualify(text);
+      return;
+    }
+
+    // Booking form open: natural language cancel
+    if (state.booking && /cancel|never ?mind|just exploring|stop/.test(normalize(text))) {
+      addMsg('user', escapeHtml(text));
+      input.value = ''; autosize();
+      state.booking = false;
+      state.bookingStep = null;
+      await botReply('<p>All good. What would you like to do next?</p>');
+      renderChips(QUICK_CHIPS);
+      return;
+    }
+
+    if (state.booking && state.bookingStep === 'form') {
+      addMsg('user', escapeHtml(text));
+      input.value = ''; autosize();
+      await botReply('<p>Use the form above to send it over, or say <strong>cancel</strong> to step out.</p>', 250);
+      return;
+    }
+
+    addMsg('user', escapeHtml(text));
+    input.value = '';
+    autosize();
+    sendBtn.disabled = true;
+    AAL_CHAT_CONFIG.onEvent('message', { text: text.slice(0, 120) });
+
+    const intent = detectIntent(text);
+
+    if (intent === 'greeting') {
+      await botReply(`<p>Hi! I can check your <strong>Foundation fit</strong>, walk through what’s included or pricing, or connect you with the team. What would you like to do?</p>`);
+      renderChips(QUICK_CHIPS);
+    } else if (intent === 'qualify') {
+      await botReply(`<p>Great, let’s check your fit. It takes about a minute.</p>`, 300);
+      startQualify();
+    } else if (intent === 'book') {
+      await botReply(`<p>Happy to set that up.</p>`, 250);
+      startBooking(text);
+    } else if (intent === 'voice') {
+      await handleVoiceRequest();
+    } else if (intent === 'think') {
+      await botReply(`<p>Of course, it’s an important decision. I’m happy to answer any questions, and if you’re not ready today I can send you the details to review at your own pace.</p>`);
+      renderChips([
+        { label: 'Check my Foundation fit', msg: 'Check my Foundation fit' },
+        { label: 'Pricing', msg: 'How much does it cost?' },
+        { label: 'Talk to a person', msg: 'I want to talk to a person' }
+      ]);
+    } else if (intent === 'thanks') {
+      await botReply(`<p>Anytime. Whenever you’re ready, I can check your Foundation fit or get you on a call.</p>`);
+      renderChips(QUICK_CHIPS);
+    } else {
+      const hit = matchKnowledge(text);
+      if (hit) {
+        await botReply(hit.answer);
+        renderChips(chipsForKB(hit.id));
+      } else {
+        await botReply(
+          `<p>I can help with:</p>
+           <ul>
+             <li>What the Foundation includes</li>
+             <li>Pricing</li>
+             <li>Checking your Foundation fit</li>
+             <li>Booking a call or talking to a person</li>
+           </ul>
+           <p>What would you like to do?</p>`
+        );
+        renderChips(QUICK_CHIPS);
+      }
+    }
+
+    sendBtn.disabled = false;
+    input.focus();
+  }
+
+  function chipsForKB(id) {
+    if (id === 'custom' || id === 'growth' || id === 'dominance') {
+      return [
+        { label: 'Book a consultation', msg: 'Book a consultation' },
+        { label: 'Talk to a person', msg: 'I want to talk to a person' }
+      ];
+    }
+    return [
+      { label: 'Check my Foundation fit', msg: 'Check my Foundation fit' },
+      { label: 'Book a call', msg: 'Book a call' },
+      { label: 'Talk to a person', msg: 'I want to talk to a person' }
+    ];
+  }
+
+  function autosize() {
+    input.style.height = 'auto';
+    input.style.height = Math.min(input.scrollHeight, 110) + 'px';
+  }
+
+  /* ═══════════════════════════════════════════════════════════
+     EVENTS
+     ═══════════════════════════════════════════════════════════ */
+  fab.addEventListener('click', () => setOpen(!state.open));
+  closeBtn.addEventListener('click', () => setOpen(false));
+  sendBtn.addEventListener('click', handleSend);
+  voiceBtn.addEventListener('click', () => {
+    if (!state.open) setOpen(true);
+    handleVoiceRequest();
+  });
+
+  input.addEventListener('input', autosize);
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend();
+    }
+  });
+
+  // Esc closes
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && state.open) setOpen(false);
+  });
+
+  // Soft auto-open nudge once per session after dwell
+  try {
+    if (!sessionStorage.getItem('aal_chat_nudged')) {
+      setTimeout(() => {
+        if (!state.open) {
+          badge.style.display = 'grid';
+          badge.textContent = '1';
+          sessionStorage.setItem('aal_chat_nudged', '1');
+        }
+      }, 12000);
+    }
+  } catch (_) {}
+
+  // Expose config for ops / future wiring
+  window.AAL_CHAT_CONFIG = AAL_CHAT_CONFIG;
+  window.AALChat = {
+    open: () => setOpen(true),
+    close: () => setOpen(false),
+    book: () => { setOpen(true); setTimeout(() => startBooking(), 400); },
+    queueVoice: handleVoiceRequest,
+    getLeads: () => {
+      try { return JSON.parse(localStorage.getItem(AAL_CHAT_CONFIG.appointments.storageKey) || '[]'); }
+      catch { return []; }
+    },
+    getVoiceQueue: () => {
+      try { return JSON.parse(localStorage.getItem('aal_voice_queue_v1') || '[]'); }
+      catch { return []; }
+    }
+  };
+
+  // Wire any [data-allie] CTA (nav, hero, final CTA) to open Allie
+  document.querySelectorAll('[data-allie]').forEach(function (el) {
+    el.addEventListener('click', function (e) {
+      e.preventDefault();
+      setOpen(true);
+    });
+  });
+
+  syncVoiceUI();
+  renderChips([]);
+})();
+</script>
+</body>
+</html>
