@@ -839,11 +839,23 @@
   }
   .g2-funnel svg { width: 100%; height: 100%; display: block; }
   .g2 { padding: 10px 0 120px; }
+  /* Single column on purpose. The funnel beams above feed straight down into
+     the cube, so the cube has to sit on the page's centre line. A side-by-side
+     grid pushed it right and made the beams look misaligned. */
   .g2-layout {
     display: grid;
-    grid-template-columns: 0.9fr 1.25fr;
-    gap: 40px;
+    grid-template-columns: 1fr;
+    gap: 26px;
+    justify-items: center;
+  }
+  .g2-head { text-align: center; max-width: 60ch; }
+  .g2-head .g2-lede { margin-inline: auto; }
+  .g2-controls {
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 18px;
+    width: 100%;
   }
   .g2-copy h2 {
     font-size: clamp(2rem, 4vw, 3rem);
@@ -854,19 +866,22 @@
   }
   .g2-lede { color: var(--muted); font-size: 0.98rem; line-height: 1.7; max-width: 46ch; }
   .g2-pillars {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin: 22px 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px 28px;
+    margin: 4px 0 0;
+    max-width: 900px;
+    width: 100%;
   }
   .g2-pillar {
     display: flex;
-    align-items: baseline;
-    gap: 12px;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
     font-size: 0.88rem;
   }
   .g2-pillar strong {
-    min-width: 84px;
     color: var(--purple-hot);
     font-weight: 700;
     letter-spacing: 0.04em;
@@ -877,8 +892,9 @@
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
-    margin-bottom: 16px;
-    max-width: 420px;
+    margin-bottom: 0;
+    max-width: 460px;
+    width: 100%;
   }
   .g2-pill {
     display: inline-flex;
@@ -995,16 +1011,23 @@
     font-weight: 600;
     letter-spacing: -0.01em;
   }
+  /* The frame is now free to be any size: applyCubeFraming() pulls the camera
+     back in proportion, so the cube holds a fixed on-screen pixel size no
+     matter how big this gets. Growing this box buys visible environment
+     around the cube, NOT a bigger cube. */
+  /* Height is capped by the VIEWPORT, not just the container. A frame taller
+     than the window means you only ever see part of it, which reads as
+     "cut off" even though nothing is actually clipped. Width then follows
+     height so the box stays roughly 5:4 instead of a wide letterbox with the
+     cube marooned in the middle. */
+  .g2 { --stage-h: clamp(440px, min(88vw, 88vh), 1120px); }
   .cube-stage {
     position: relative;
-    /* +10px each side, +5px top/bottom — cube scale/camera unchanged */
-    width: calc(100% + 20px);
-    margin-left: -10px;
-    margin-right: -10px;
-    height: min(810px, calc(90vw + 22px));
+    height: var(--stage-h);
+    width: min(100%, calc(var(--stage-h) * 1.25));
+    margin-inline: auto;
     box-sizing: border-box;
-    /* Breathing room so float doesn't kiss the clip edge */
-    padding: 19px 24px;
+    padding: 20px 24px;
     border-radius: 28px;
     border: 1px solid rgba(180, 77, 255, 0.2);
     background:
@@ -1162,16 +1185,10 @@
     .feature-grid { grid-template-columns: 1fr 1fr; }
     .steps { grid-template-columns: 1fr 1fr; }
     .faq-layout { grid-template-columns: 1fr; gap: 36px; }
-    .g2-layout { grid-template-columns: 1fr; gap: 32px; }
-    .cube-stage {
-      height: min(750px, calc(94vw + 22px));
-      order: -1;
-      width: calc(100% + 20px);
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
-      padding: 19px 24px;
-    }
+    .g2-layout { gap: 28px; }
+    /* Stage sizing is driven by --stage-h now, which is already viewport
+       aware, so the old fixed height/width/order overrides here are gone.
+       They predated the single-column layout and would fight it. */
   }
   @media (max-width: 720px) {
     .nav-links { display: none; }
@@ -1199,9 +1216,10 @@
 
     .g2 { padding: 8px 0 72px; }
     .g2-funnel { height: 72px; margin-top: 12px; }
+    /* Phone: the frame goes edge to edge and squarer, since width is the
+       binding dimension here, not height. */
+    .g2 { --stage-h: clamp(400px, min(112vw, 76vh), 620px); }
     .cube-stage {
-      height: min(calc(100vw + 22px), 590px);
-      min-height: 470px;
       width: calc(100% + 20px);
       max-width: none;
       margin-left: -10px;
@@ -1209,6 +1227,8 @@
       padding: 17px 22px;
       border-radius: 20px;
     }
+    .g2-pillars { grid-template-columns: 1fr; gap: 14px; }
+    .g2-pills { max-width: none; }
     .cube-face-label {
       bottom: 12px;
       padding: 8px 14px;
@@ -1804,26 +1824,30 @@
 <section class="g2" id="g2">
   <div class="wrap-wide">
     <div class="g2-layout">
-      <div class="g2-copy reveal">
+      <div class="g2-copy g2-head reveal">
         <div class="eyebrow">Everywhere you show up</div>
         <h2>One system that <span class="accent">captures it all.</span></h2>
         <p class="g2-lede">
           Our system connects every source of traffic, captures every lead,
           and turns attention into real business.
         </p>
-        <div class="g2-pillars">
-          <div class="g2-pillar"><strong>Capture</strong><span>From every platform people find you on.</span></div>
-          <div class="g2-pillar"><strong>Manage</strong><span>All leads in one smart dashboard.</span></div>
-          <div class="g2-pillar"><strong>Convert</strong><span>Automate follow-ups and close more deals.</span></div>
-        </div>
+      </div>
+      <div class="cube-stage reveal">
+        <canvas id="g2-canvas" aria-label="The AAL G2 System, an interactive cube"></canvas>
+      </div>
+      <!-- Controls sit under the cube they drive, and moving them out of the
+           left column is what frees the full width for a centered stage. -->
+      <div class="g2-controls reveal">
         <div class="g2-pills" id="g2Pills"></div>
         <div class="faq-hints">
           <span class="faq-hint"><kbd>Drag</kbd> turn the cube</span>
           <span class="faq-hint"><kbd>Click</kbd> or use the pills</span>
         </div>
-      </div>
-      <div class="cube-stage reveal">
-        <canvas id="g2-canvas" aria-label="The AAL G2 System, an interactive cube"></canvas>
+        <div class="g2-pillars">
+          <div class="g2-pillar"><strong>Capture</strong><span>From every platform people find you on.</span></div>
+          <div class="g2-pillar"><strong>Manage</strong><span>All leads in one smart dashboard.</span></div>
+          <div class="g2-pillar"><strong>Convert</strong><span>Automate follow-ups and close more deals.</span></div>
+        </div>
       </div>
     </div>
 
@@ -1959,7 +1983,7 @@
   <div class="wrap">
     <div class="cta-panel reveal">
       <div class="eyebrow" style="justify-content:center;margin-bottom:18px;">Ready When You Are</div>
-      <h2>Become impossible to ignore.</h2>
+      <h2>Become the business they find, trust and choose.</h2>
       <p>Talk to Allie. She maps your visibility, checks your Foundation fit, and gets the right leads flowing into one book of business.</p>
       <div class="cta-actions">
         <a href="#cta" class="btn btn-primary" data-allie>Talk to Allie →</a>
@@ -2401,7 +2425,9 @@ renderer.toneMappingExposure = 1;
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(32, 1, 0.1, 100);
-// Keep camera close for readable faces — room comes from the stage frame, not zoom-out
+// Placeholder only. applyCubeFraming() overwrites this on first resize(),
+// solving for the distance that renders the face at TARGET_FACE_PX. Do not
+// hand-tune this value: that is what coupled cube size to frame size before.
 camera.position.set(0, 0, 6.4);
 
 // Soft lights only (BasicMaterial faces ignore lights; edges/floor still use them)
@@ -2560,30 +2586,71 @@ let activeFace = 0;
 let snapping = false;
 let didDrag = false;
 
+// ── CUBE FRAMING ────────────────────────────────────────────────
+// The old version hard-pinned the camera to z=6.4 at every breakpoint (three
+// identical branches). Because a PerspectiveCamera projects an object to
+//     px = canvasHeight * size / (2 * distance * tan(fov/2))
+// a fixed distance means the cube's pixel size scales 1:1 with the frame.
+// That is why enlarging the stage always enlarged the cube too, and why
+// pulling the camera back to compensate shrank the face art until the text
+// was unreadable. You cannot fix one without the other by hand.
+//
+// So solve for distance instead: pick the on-screen size the face SHOULD be,
+// then derive the distance that produces it at the current canvas height.
+// Frame size and cube size are now independent. Grow the stage all you like.
+
+const FACE_W  = 2.85;   // BoxGeometry face, the thing carrying the art
+const SHELL_W = 3.0;    // outer shell, the thing that actually clips
+const HALF    = SHELL_W / 2;
+
+// Locked on-screen height of a face-on face, in CSS px. This is the number
+// that governs whether the face art is readable: source art is 1024px, so
+// 780 renders it at 76% of native. Lower this and the text softens.
+const TARGET_FACE_PX = 780;
+
+// Ceiling on how much of the frame height a face-on face may occupy. This is
+// what buys the visible margin, and on short windows it is what scales the
+// cube down instead of clipping it.
+//
+// 0.82 is deliberate, not arbitrary. Every resting state of this cube is
+// face-on (all six FACE_SNAP targets are square to the camera), and the only
+// sustained in-between state is an edge-on turn about Y, whose silhouette is
+// SHELL*sqrt(2) = 4.24 world units. At 0.82 the frame shows 4.34, so face-on
+// and edge-on both clear it. A true three-axis corner (5.20) is only ever a
+// transient mid-drag pose. Dropping to 0.70 to cover that case too costs
+// ~17% of face size on every window, which is what made the art unreadable.
+const MAX_FACE_FRACTION = 0.82;
+
 function applyCubeFraming() {
-  const mobile = window.innerWidth <= 720;
-  const tablet = window.innerWidth <= 1024 && !mobile;
-  // Cube size stays at 1.0 — only the CSS frame grows for edge/float room
-  if (mobile) {
-    camera.position.set(0, 0, 6.4);
-    camera.fov = 32;
-    cubeGroup.scale.setScalar(1.0);
-  } else if (tablet) {
-    camera.position.set(0, 0, 6.4);
-    camera.fov = 32;
-    cubeGroup.scale.setScalar(1.0);
-  } else {
-    camera.position.set(0, 0, 6.4);
-    camera.fov = 32;
-    cubeGroup.scale.setScalar(1.0);
-  }
+  const w = Math.max(1, canvas.clientWidth);
+  const h = Math.max(1, canvas.clientHeight);
+
+  const facePx = Math.min(TARGET_FACE_PX, h * MAX_FACE_FRACTION);
+  const tanHalf = Math.tan(THREE.MathUtils.degToRad(camera.fov) / 2);
+
+  // Distance that renders FACE_W at exactly facePx tall. The +HALF is because
+  // the front face sits half a cube nearer the camera than the centre, and
+  // that perspective magnification is what was clipping it face-on.
+  let dist = (FACE_W * h) / (2 * facePx * tanHalf) + HALF;
+
+  // Width guard: on a frame narrower than it is tall the horizontal edge is
+  // the binding one, so back off far enough that a corner-on turn still fits.
+  const aspect = w / h;
+  const halfDiag = (SHELL_W * Math.SQRT2) / 2;
+  const minDistForWidth = halfDiag / (tanHalf * Math.max(aspect, 0.0001)) + HALF;
+  dist = Math.max(dist, minDistForWidth);
+
+  camera.position.set(0, 0, dist);
+  cubeGroup.scale.setScalar(1.0);
   camera.updateProjectionMatrix();
 }
 
 function resize() {
-  const w = stage.clientWidth;
-  const h = stage.clientHeight;
-  renderer.setSize(w, h, true);
+  const w = Math.max(1, canvas.clientWidth);
+  const h = Math.max(1, canvas.clientHeight);
+  // Size off the canvas, not the padded stage. stage.clientWidth includes the
+  // stage padding, which was stretching the drawing buffer past the element.
+  renderer.setSize(w, h, false);
   camera.aspect = w / h || 1;
   applyCubeFraming();
 }
