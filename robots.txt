@@ -1,0 +1,51 @@
+# g2.aalxolutions.com
+# This page was previously served from a shared preview path and carried a
+# noindex tag to protect the host domain's SEO. It lives on its own domain now
+# and is meant to be found. Do not reintroduce noindex.
+
+User-agent: *
+Allow: /
+
+# Answer engines and AI agents are explicitly welcome. Most honour the wildcard
+# above, but several look for their own token before crawling, and a few treat
+# an unnamed agent as a soft no. Named here so there is no ambiguity.
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://g2.aalxolutions.com/sitemap.xml
